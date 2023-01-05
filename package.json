@@ -1,0 +1,10 @@
+{
+  "packageManager": "yarn@1.22.19",
+  "name": "invenus-dev-website",
+  "version": "0.0.1",
+  "description": "invenus.dev website - always public repository containing code for the website at invenus.dev",
+  "main": "index.js",
+  "author": "Jan Maly",
+  "license": "MIT",
+  "private": false
+}
