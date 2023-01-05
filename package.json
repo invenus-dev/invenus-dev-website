@@ -5,7 +5,7 @@
     "type": "git",
     "url": "https://github.com/invenus-dev/invenus-dev-website.git"
   },
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "invenus.dev website - always public repository containing code for the website at invenus.dev",
   "main": "index.js",
   "author": "Jan Maly",
