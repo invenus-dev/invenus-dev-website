@@ -1,4 +1,6 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
 
 module.exports = {
   mode: 'development',
@@ -10,7 +12,7 @@ module.exports = {
   },
   devServer: {
     static: {
-      directory: path.join(__dirname, '/'),
+      directory: path.join(__dirname, '/dist/'),
     },
   },
   devtool: 'inline-source-map',
@@ -30,4 +32,11 @@ module.exports = {
   resolve: {
     extensions: ['.ts', '.js'],
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: 'src/html/index.html',
+      alwaysWriteToDisk: true,
+    }),
+    new HtmlWebpackHarddiskPlugin(),
+  ],
 };
