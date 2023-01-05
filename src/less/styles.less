@@ -5,6 +5,9 @@
 @font-body: 'Yantramanav', sans-serif;
 @font-type: 'Noto Sans Mono', monospace;
 
+@b-large: 1120px;
+@b-small: 450px;
+
 html {
   color: @color-body;
   font-family: @font-body;
@@ -40,6 +43,13 @@ nav {
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  position: sticky;
+  top: 0;
+  background: @color-bg;
+
+  @media screen and (min-width: @b-large) {
+    position: static;
+  }
 
   a {
     padding-left: 2rem;
@@ -47,10 +57,13 @@ nav {
 }
 
 section {
-  display: flex;
-  gap: 5.5rem;
   padding: 0 2em;
-  min-height: calc(90vh - 4em);
+
+  @media screen and (min-width: @b-large) {
+    display: flex;
+    gap: 5.5rem;
+    min-height: calc(90vh - 4em);
+  }
 
   aside {
     flex: 0 0 35%;
@@ -59,8 +72,12 @@ section {
     justify-content: center;
 
     h1 {
-      font-size: 6.2rem;
+      font-size: 3.1rem;
       margin: 0;
+
+      @media screen and (min-width: @b-small) {
+        font-size: 6.2rem;
+      }
     }
 
     code {
@@ -98,6 +115,11 @@ section {
 
     div.secondary {
       font-size: 0.9rem;
+      margin-bottom: 5em;
+
+      @media screen and (min-width: @b-large) {
+        margin-bottom: 0;
+      }
 
       h3 {
         font-size: 1.6rem;
