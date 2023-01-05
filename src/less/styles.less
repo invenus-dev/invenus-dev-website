@@ -1,0 +1,95 @@
+@color-bg: #FFF2DF;
+@color-body: #592627;
+@color-link: #FF524F;
+@font-headings: 'Teko', sans-serif;
+@font-body: 'Yantramanav', sans-serif;
+@font-type: 'Noto Sans Mono', monospace;
+
+html {
+  color: @color-body;
+  font-family: @font-body;
+  font-size: 18px;
+}
+
+h1,
+h2,
+h3 {
+  font-family: @font-headings;
+}
+
+code,
+code span {
+  font-family: @font-type;
+}
+
+a {
+  color: @color-link;
+}
+
+body {
+  background: @color-bg;
+  width: 100%;
+  max-width: 60rem;
+  margin: 0 auto;
+}
+
+nav {
+  height: 2em;
+  line-height: 2em;
+  padding: 1em 1.5em;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  a {
+    padding-left: 2rem;
+  }
+}
+
+section {
+  display: flex;
+  gap: 5.5rem;
+
+  aside {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    h1 {
+      font-size: 6.2rem;
+      margin: 0;
+    }
+
+    code {
+      font-size: 0.985rem;
+    }
+  }
+
+  main {
+    h2 {
+      font-size: 2.1rem;
+      margin-bottom: 0;
+    }
+
+    ul {
+      padding-left: 1.4em;
+
+      li {
+        margin: 0.6em 0;
+      }
+    }
+
+    div.secondary {
+      font-size: 0.9rem;
+
+      h3 {
+        font-size: 1.6rem;
+        margin-bottom: 0;
+      }
+
+      p {
+        margin: 0.25em 0;
+      }
+    }
+  }
+}
