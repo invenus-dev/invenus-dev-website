@@ -1,6 +1,8 @@
 const path = require('path');
 const CleanPlugin = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
 
 module.exports = {
   // set env mode
@@ -31,5 +33,13 @@ module.exports = {
     extensions: ['.ts', '.js'],
   },
   // webpack plugins - applied on project level
-  plugins: [new CleanPlugin.CleanWebpackPlugin(), new MiniCssExtractPlugin()],
+  plugins: [
+    new CleanPlugin.CleanWebpackPlugin(),
+    new MiniCssExtractPlugin(),
+    new HtmlWebpackPlugin({
+      template: 'src/html/index.html',
+      alwaysWriteToDisk: true,
+    }),
+    new HtmlWebpackHarddiskPlugin(),
+  ],
 };
