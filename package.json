@@ -12,7 +12,8 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server",
+    "build": "webpack --config webpack.config.prod.js"
   },
   "dependencies": {
     "ts-loader": "^9.4.2",
@@ -22,6 +23,7 @@
     "webpack-dev-server": "^4.11.1"
   },
   "devDependencies": {
+    "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.7.3",
     "less": "^4.1.3",
     "less-loader": "^11.1.0",
