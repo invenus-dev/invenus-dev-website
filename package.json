@@ -1,6 +1,10 @@
 {
   "packageManager": "yarn@1.22.19",
   "name": "invenus-dev-website",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/invenus-dev/invenus-dev-website.git"
+  },
   "version": "0.0.1",
   "description": "invenus.dev website - always public repository containing code for the website at invenus.dev",
   "main": "index.js",
