@@ -1,0 +1,112 @@
+html {
+  color: #592627;
+  font-family: 'Yantramanav', sans-serif;
+  font-size: 18px;
+}
+h1,
+h2,
+h3 {
+  font-family: 'Teko', sans-serif;
+}
+code,
+code span {
+  font-family: 'Noto Sans Mono', monospace;
+}
+a {
+  color: #FF524F;
+}
+body {
+  background: #FFF2DF;
+  width: 100%;
+  max-width: 70rem;
+  margin: 0 auto;
+}
+nav {
+  height: 2em;
+  line-height: 2em;
+  padding: 1em 1.5em;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  position: sticky;
+  top: 0;
+  background: #FFF2DF;
+}
+@media screen and (min-width: 1120px) {
+  nav {
+    position: static;
+  }
+}
+nav a {
+  padding-left: 2rem;
+}
+section {
+  padding: 0 2em;
+}
+@media screen and (min-width: 1120px) {
+  section {
+    display: flex;
+    gap: 5.5rem;
+    min-height: calc(90vh - 4em);
+  }
+}
+section aside {
+  flex: 0 0 35%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+section aside h1 {
+  font-size: 3.1rem;
+  margin: 0;
+}
+@media screen and (min-width: 450px) {
+  section aside h1 {
+    font-size: 6.2rem;
+  }
+}
+section aside code {
+  font-size: 0.985rem;
+  color: #c98283;
+}
+section aside code span {
+  color: #592627;
+}
+section main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+section main div.main {
+  margin-bottom: 4em;
+}
+section main div.main h2 {
+  font-size: 2.1rem;
+  margin-bottom: 0;
+}
+section main div.main ul {
+  padding-left: 1.4em;
+}
+section main div.main ul li {
+  margin: 0.6em 0;
+}
+section main div.secondary {
+  font-size: 0.9rem;
+  margin-bottom: 5em;
+}
+@media screen and (min-width: 1120px) {
+  section main div.secondary {
+    margin-bottom: 0;
+  }
+}
+section main div.secondary h3 {
+  font-size: 1.6rem;
+  margin-bottom: 0;
+}
+section main div.secondary p {
+  margin: 0.25em 0;
+}
+section main div.secondary p span {
+  color: #c98283;
+}
+
