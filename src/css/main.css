@@ -1,3 +1,57 @@
 @tailwind base;
 @tailwind components;
+
+.sticky-on {
+  @apply sticky top-0 z-10 drop-shadow-md;
+}
+
+.logo-symbol {
+  @apply hidden;
+}
+
+.sticky-on .logo-symbol {
+  @apply block w-6;
+}
+
+.mainbody .headnote {
+  @apply bg-invPrimary px-3 py-1 font-extrabold uppercase text-invBlue;
+}
+
+.mainbody h2 {
+  @apply mb-3 mt-1 font-heading text-6xl;
+}
+
+.mainbody p {
+  @apply mb-3 max-w-3xl text-lg;
+}
+
+.cubicle {
+  @apply h-48 w-64 rounded-lg bg-invBlue text-invSecondary;
+}
+
+/* https://dev.to/afif/a-multi-line-css-only-typewriter-effect-3op3 */
+/* TODO */
+
+.benefit-card {
+  @apply rounded-md bg-gray-200 p-8
+  transition duration-300 
+  md:hover:translate-y-1 md:hover:drop-shadow-lg;
+}
+
+.benefit-card__head {
+  @apply flex items-center;
+}
+
+.benefit-card__head h3 {
+  @apply ml-4 text-2xl font-bold text-invBlue;
+}
+
+.benefit-card__head img {
+  @apply h-8 w-8;
+}
+
+.benefit-card__text {
+  @apply mt-4 text-lg;
+}
+
 @tailwind utilities;

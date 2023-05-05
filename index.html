@@ -9,7 +9,6 @@
         dataLayer.push(arguments);
       }
       gtag('js', new Date());
-
       gtag('config', 'G-EXKBMBR0C1');
     </script>
     <meta charset="UTF-8" />
@@ -24,59 +23,145 @@
     <title>invenus &ndash; your idea, our code</title>
   </head>
   <body>
-    <nav class="text-gray-800">
-      <a href="https://github.com/invenus-dev">Github</a>
-      <a href="mailto:jan@invenus.dev">Contact Me</a>
+    <nav class="sticky-header bg-invBlue px-4 py-2 text-invSecondary">
+      <div class="container mx-auto flex items-center justify-between">
+        <div>
+          <img
+            class="logo-symbol"
+            src="/src/assets/icons/invenus-logo-symbol.svg"
+            alt="invenus logo symbol"
+          />
+        </div>
+        <div>
+          <a href="https://github.com/invenus-dev">Github</a>
+          <a href="mailto:jan@invenus.dev">Contact Me</a>
+        </div>
+      </div>
     </nav>
-    <section>
-      <aside>
-        <h1>invenus</h1>
-        <code>{ your: <span>"idea"</span>, our: <span>code()</span> }</code>
-      </aside>
-      <main>
-        <div class="main">
-          <div id="root"></div>
-          <h2>Main facts</h2>
-          <ul>
-            <li>Czech-based development company focusing in full-stack JavaScript development.</li>
-            <li>
-              Currently one senior JavaScript developer with more than 15 years of commercial
-              experience available for hire &ndash; owner
-              <a href="mailto:jan@invenus.dev">Jan Maly</a>.
-            </li>
-            <li>
-              Tech: ES2022 JavaScript + TypeScript, Jest/Vitest, React, Vue, Svelte, Next, Node.js,
-              SST framework + AWS Serverless, Gatsby.
-            </li>
-            <li>
-              Daily cooperation with English-speaking clients, quick adaptation and situational
-              awareness.
-            </li>
-          </ul>
-          <p><em>More details coming soon...</em></p>
+    <main id="sticky-trigger" class="bg-invBlue px-4 pb-20 pt-8">
+      <div
+        class="container mx-auto flex flex-col space-x-0 space-y-12 md:flex-row md:space-x-8 md:space-y-0"
+      >
+        <div
+          class="flex flex-col items-center justify-center text-invSecondary xs:text-lg md:w-1/2 md:text-xl xl:text-2xl"
+        >
+          <h1 class="hidden">invenus &ndash; your idea, our code</h1>
+          <img src="/src/assets/logo_safe_512x249.png" alt="invenus logo" />
+          <code class="inline-block"
+            >{ your: <span class="text-invPrimary">"idea"</span>, our:
+            <span class="text-invPrimary">code()</span> }</code
+          >
         </div>
-        <div class="secondary">
-          <h3>Contact details</h3>
+        <div class="flex justify-center md:w-1/2">
+          <img src="/src/assets/base_developer_transparent.png" />
+        </div>
+      </div>
+    </main>
+    <section class="container mx-auto py-24">
+      <div class="flex">
+        <div class="hidden w-1/3 items-center justify-center text-lg lg:flex">
+          <div
+            class="cubicle"
+            data-text="/* We have been in web development since 2007. Not much can surprise us today. */"
+          ></div>
+        </div>
+        <div class="mainbody lg:w-2/3">
+          <span class="headnote">introduction</span>
+          <h2>What is invenus</h2>
           <p>
-            <span>E-mail:</span>
-            <a href="mailto:jan@invenus.dev">jan@invenus.dev</a>
-          </p>
-          <p>
-            <span>Phone:</span>
-            <a href="tel:+420722211443">+420&nbsp;722&nbsp;211&nbsp;443</a>
-          </p>
-          <p>
-            <span>Business data:</span> invenus s.r.o., Sukova 49/4, 602 00 Brno, Czech Republic,
-            VAT No.: CZ06714846
-          </p>
-          <p>
-            <span>Bank details:</span>
-            <span>IBAN</span> CZ9320600000000001179006, <span>SWIFT/BIC</span>
-            CITFCZPPXXX
+            Invenus is a independent developer collective based around <strong>Jan Malý</strong>,
+            web developer with more than 15&nbsp;years of commercial experience. Jan has a strong
+            tech background, starting from languages such as PHP and gradually shifting towards
+            <strong>JavaScript</strong>. He experienced many technological eras and shifts in the
+            field, tested and tried a lot of approaches, frameworks and libraries. That makes him an
+            ideal candidate for your projects, no matter how advanced they are.
           </p>
         </div>
-      </main>
+      </div>
     </section>
+    <section class="bg-gray-100 py-24">
+      <div class="container mx-auto">
+        <div class="mainbody mb-12">
+          <span class="headnote">Why with us</span>
+          <h2>Competitive edge</h2>
+        </div>
+        <div class="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3">
+          <div class="benefit-card">
+            <div class="benefit-card__head">
+              <img src="/src/assets/icons/academic-cap.svg" alt="Academic cap icon" />
+              <h3>Experience</h3>
+            </div>
+            <div class="benefit-card__text">
+              <p>
+                Jan has been actively building for the web since 2007. He knows what works and what
+                doesn't. He will be your main contact.
+              </p>
+            </div>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-card__head">
+              <img src="/src/assets/icons/phone-arrow-up-right.svg" alt="Phone call icon" />
+              <h3>Active collaboration</h3>
+            </div>
+            <div class="benefit-card__text">
+              <p>
+                Great products came from great understanding. We&nbsp;are not afraid to ask
+                questions and clarify any issues early. We are not afraid to say no.
+              </p>
+            </div>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-card__head">
+              <img src="/src/assets/icons/face-smile.svg" alt="Smiling face" />
+              <h3>Fair pricing</h3>
+            </div>
+            <div class="benefit-card__text">
+              <p>
+                We believe in fair pricing and hate hidden costs. That's why we provide upfront
+                estimates whenever possible.
+              </p>
+            </div>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-card__head">
+              <img src="/src/assets/icons/table-cells.svg" alt="Table cells" />
+              <h3>Realistic plan and delivery</h3>
+            </div>
+            <div class="benefit-card__text">
+              <p>
+                We collaborate with you to create a realistic plan and then deliver on it. Good
+                project managers will love us. Lazy cooperators will hate us.
+              </p>
+            </div>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-card__head">
+              <img src="/src/assets/icons/wrench-screwdriver.svg" alt="Wrench and screwdriver" />
+              <h3>High adaptability</h3>
+            </div>
+            <div class="benefit-card__text">
+              <p>
+                We understand a wide range of project organization styles, tools and approaches. We
+                expect to learn new things while on the job &ndash; that's just part of the process.
+              </p>
+            </div>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-card__head">
+              <img src="/src/assets/icons/currency-dollar.svg" alt="US dollar icon" />
+              <h3>Excellent value for the money</h3>
+            </div>
+            <div class="benefit-card__text">
+              <p>
+                We work smarter, not harder. Our major goal is that every cent you spent on us
+                should feel like good investment and does not bear additional future costs.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
