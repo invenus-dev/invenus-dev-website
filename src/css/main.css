@@ -25,6 +25,10 @@
   @apply mb-3 max-w-3xl text-lg;
 }
 
+.mainbody ul {
+  @apply list-disc pl-8 text-lg;
+}
+
 .cubicle {
   @apply h-48 w-64 rounded-lg bg-invBlue text-invSecondary;
 }
