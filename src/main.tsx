@@ -1,5 +1,7 @@
 import { createRoot } from 'react-dom/client';
 import Cubicle from 'Cubicle';
+import TechStack from 'TechStack';
+import WithSvr from 'components/WithSvr';
 import './css/main.css';
 
 // React DOM hydration
@@ -9,6 +11,16 @@ rootEls.map((rootEl) => {
   const text = rootEl.dataset?.text;
   root.render(<Cubicle text={text} />);
 });
+
+const techStackEl = document.getElementById('tech-stack');
+if (techStackEl) {
+  const stackFile = techStackEl.dataset?.stackFile as string;
+  createRoot(techStackEl).render(
+    <WithSvr>
+      <TechStack stackFile={stackFile} />
+    </WithSvr>
+  );
+}
 
 // Sticky enable - intersection reaction when hero is off
 document.addEventListener('DOMContentLoaded', function () {

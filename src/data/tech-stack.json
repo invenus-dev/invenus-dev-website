@@ -1,0 +1,39 @@
+[
+  {
+    "title": "JavaScript",
+    "trivia": "being in touch with JavaScript since the early years, we have a deep knowledge and daily hands-on experience. We're able to set up or reuse existing project environment. We embrace TypeScript for type safety and code annotations. We use ESLint and simmilar to keep unified code style. We've experienced test-driven development with Jest or Vite as unit test tools. Most recently, we've been exploring fp-ts to embrace functional programming paradigms.",
+    "hash": "javascript",
+    "techs": [
+      "up to ES2022 specification",
+      "TypeScript",
+      "fp-ts",
+      "Jest",
+      "Vite",
+      "ESLint"
+    ]
+  },
+  {
+    "title": "Frameworks",
+    "trivia": "our framework experience is lined up React. We started with class-based approach in the early years and gradually shifted towards functional components and hooks, always adopting best practises. We have experience in integrating React with Redux for advanced state management. Gatsby and later Next was used on several project from websites to complex applications. We're also having a working hands-on experience with Vue, mostly in stand-alone sections of larger projects.",
+    "hash": "frameworks",
+    "techs": [
+      "React",
+      "Redux",
+      "Gatsby",
+      "Next",
+      "Vue 2/3",
+      "Svelte"
+    ]
+  },
+  {
+    "title": "UI",
+    "trivia": "the core technology is CSS3, which we applied on many website projects over the years. We are able to exploit the advantages of Sass or Less, such as nesting or mixins. Also experienced a lot of Material UI on app-style interfaces such as admins or dashboards. Most recently we've embraced Tailwind as a first choice when starting new web projects, to achieve perfect mix of development experience and website performance.",
+    "hash": "ui",
+    "techs": [
+      "CSS3",
+      "Tailwind",
+      "Sass/Less",
+      "Material UI"
+    ]
+  }
+]
