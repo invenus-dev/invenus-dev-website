@@ -79,4 +79,12 @@
   @apply mt-4 text-lg;
 }
 
+.tech-nav {
+  @apply inline-block rounded-full bg-primary-dark px-6 py-2 font-semibold tracking-wide text-tertiary hover:text-secondary;
+}
+
+.tech-nav.active {
+  @apply bg-secondary text-primary;
+}
+
 @tailwind utilities;
