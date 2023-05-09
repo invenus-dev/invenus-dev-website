@@ -11,7 +11,7 @@ const AllStacks = ({ stacks, onSelect }: Props) => {
       {stacks.map(({ hash, title, techs }) => (
         <button
           key={hash}
-          className="cursor-pointer bg-primary-light px-4 py-6 drop-shadow-md hover:translate-x-px hover:translate-y-px"
+          className="cursor-pointer rounded-2xl bg-primary-light px-4 py-6 drop-shadow-md hover:translate-x-px hover:translate-y-px"
           onClick={() => onSelect(hash)}
         >
           <h4 className="text-xl font-semibold text-secondary-dark">{title}</h4>

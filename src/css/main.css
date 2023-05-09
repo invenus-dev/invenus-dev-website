@@ -48,7 +48,7 @@
   @apply ml-2 h-auto w-8;
 }
 
-.btn-primary {
+.btn-secondary {
   @apply bg-secondary text-primary
   ring-primary-light hover:bg-secondary-dark
   hover:text-primary-dark;
@@ -80,7 +80,7 @@
 }
 
 .tech-nav {
-  @apply inline-block rounded-full bg-primary-dark px-6 py-2 font-semibold tracking-wide text-tertiary hover:text-secondary;
+  @apply inline-block rounded-full bg-primary-light px-6 py-2 font-semibold tracking-wide text-tertiary hover:text-secondary;
 }
 
 .tech-nav.active {
