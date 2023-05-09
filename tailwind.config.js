@@ -14,9 +14,23 @@ module.exports = {
         mono: ['"Noto Sans Mono"', ...defaultTheme.fontFamily.mono],
       },
       colors: {
-        invBlue: '#324376',
-        invPrimary: '#F5DD90',
-        invSecondary: '#FFFFFF',
+        primary: {
+          light: '#4962AB',
+          DEFAULT: '#324376',
+          dark: '#253156',
+        },
+        secondary: {
+          light: '#FAAEEC7',
+          DEFAULT: '#F5DD90',
+          dark: '#EFCC57',
+        },
+        tertiary: {
+          DEFAULT: '#FFFFFF',
+          grade1: '#F5F5F5',
+          grade2: '#EBEBEB',
+          grade3: '#E0E0E0',
+          grade4: '#D6D6D6',
+        },
       },
       screens: {
         xs: '360px',
