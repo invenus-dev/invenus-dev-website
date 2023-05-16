@@ -1,14 +1,14 @@
-import { StackTechnology } from 'TechStack';
+import { StackTechnologyGroup } from 'TechStack';
 
 type Props = {
-  stacks: StackTechnology[];
+  stacks: StackTechnologyGroup[];
   currentStackHash: string | null;
   onSelect: (stackHash: string) => void;
 };
 
 const StackNavigation = ({ stacks, currentStackHash, onSelect }: Props) => {
   return (
-    <ul className="flex justify-start space-x-6">
+    <ul className="flex flex-wrap justify-start gap-x-4 gap-y-3">
       {stacks.map(({ hash, title }) => (
         <li key={hash} className="">
           <a

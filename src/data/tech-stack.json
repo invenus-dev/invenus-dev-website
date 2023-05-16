@@ -1,82 +1,138 @@
 [
   {
     "title": "JavaScript",
-    "subtitle": "JavaScript is at the heart of our story",
-    "trivia": "Being in touch with JavaScript since the early years, we have a deep knowledge and daily hands-on experience. We're able to set up or reuse existing project environment. We embrace TypeScript for type safety and code annotations. We use ESLint and simmilar to keep unified code style. We've experienced test-driven development with Jest or Vite as unit test tools. Most recently, we've been exploring fp-ts to embrace functional programming paradigms.",
+    "subtitle": "JavaScript / ECMAScript and related language topics",
+    "content": [
+      "From first attempts on dynamic website elements in 2007, to whole applications using frameworks, JavaScript is at the heart of our story.",
+      "It is the most universal language of the web, hence we believe understanding it and having complete control is essential."
+    ],
     "hash": "javascript",
     "techs": [
-      "up to ES2022",
-      "TypeScript",
-      "fp-ts",
-      "Jest",
-      "Vitest",
-      "ESLint"
+      {
+        "Tech": "JavaScript",
+        "Since": 2007,
+        "Projects": "100+",
+        "Level *": "Expert",
+        "Notes": "up to ES2022 specs"
+      },
+      {
+        "Tech": "TypeScript",
+        "Since": 2018,
+        "Projects": "10+",
+        "Level *": "Advanced",
+        "Notes": "preferred on new projects"
+      },
+      {
+        "Tech": "Unit testing",
+        "Since": 2014,
+        "Projects": "8+ actively",
+        "Level *": "Advanced",
+        "Notes": "mainly Jest, Vitest"
+      },
+      {
+        "Tech": "Linting",
+        "Since": 2018,
+        "Projects": "15+ actively",
+        "Level *": "Intermediate",
+        "Notes": "ESLint, Prettier"
+      }
     ]
   },
   {
     "title": "Frameworks",
-    "subtitle": "Understanding the ecosystem is the key to success",
-    "trivia": "Our framework experience is lined up React. We started with class-based approach in the early years and gradually shifted towards functional components and hooks, always adopting best practises. We have experience in integrating React with Redux for advanced state management. Gatsby and later Next was used on several project from websites to complex applications. We're also having a working hands-on experience with Vue, mostly in stand-alone sections of larger projects.",
+    "subtitle": "JavaScript frameworks and libraries",
+    "content": [
+      "React, Redux, Next, you name it. We have worked with them since their inception, understand them and love them.",
+      "While naturally leaning towards React, there is no such thing as an universal solution, and a developer's attitude must be open."
+    ],
     "hash": "frameworks",
     "techs": [
-      "React",
-      "Redux",
-      "Storybook",
-      "Gatsby",
-      "Next",
-      "Vue 2/3",
-      "Svelte"
+      {
+        "Tech": "React",
+        "Since": 2015,
+        "Projects": "30+",
+        "Level *": "Expert",
+        "Usual projects": "Apps, Websites"
+      },
+      {
+        "Tech": "Redux",
+        "Since": 2016,
+        "Projects": "10+",
+        "Level *": "Expert",
+        "Usual projects": "Anyting with state logic"
+      },
+      {
+        "Tech": "Next",
+        "Since": 2020,
+        "Projects": "4+",
+        "Level *": "Advanced",
+        "Usual projects": "Apps, Websites"
+      },
+      {
+        "Tech": "Vue",
+        "Since": 2019,
+        "Projects": "3+",
+        "Level *": "Intermediate",
+        "Usual projects": "Usually website components"
+      },
+      {
+        "Tech": "Gatsby",
+        "Since": 2018,
+        "Projects": "2+",
+        "Level *": "Advanced",
+        "Usual projects": "Websites, paired CMS: Prismic / Strapi"
+      },
+      {
+        "Tech": "Storybook",
+        "Since": 2020,
+        "Projects": "2+",
+        "Level *": "Intermediate",
+        "Usual projects": "Larger codebases - UI elements"
+      },
+      {
+        "Tech": "Svelte",
+        "Since": 2021,
+        "Projects": "no commercial",
+        "Level *": "Brief",
+        "Usual projects": "Only demo projects"
+      }
     ]
   },
   {
     "title": "UI",
-    "subtitle": "Without the look, ther would be no feel",
-    "trivia": "The core technology is CSS3, which we applied on many website projects over the years. We are able to exploit the advantages of Sass or Less, such as nesting or mixins. Also experienced a lot of Material UI on app-style interfaces such as admins or dashboards. Most recently we've embraced Tailwind as a first choice when starting new web projects, to achieve perfect mix of development experience and website performance.",
+    "subtitle": "Styling and CSS related topics",
+    "content": [
+      "Without the look, there would be no feel. And since 2007, everything on the web was always about the look.",
+      "Starting with plan CSS, we leveraged a number of important tools and libraries to increase development speed and performance."
+    ],
     "hash": "ui",
-    "techs": [
-      "CSS3",
-      "Tailwind",
-      "Sass/Less",
-      "Material UI"
-    ]
+    "techs": []
   },
   {
     "title": "Backend",
-    "subtitle": "Hidden on the server, a great power awaits",
-    "trivia": "Being in touch with JavaScript since the early years, we have a deep knowledge and daily hands-on experience. We're able to set up or reuse existing project environment. We embrace TypeScript for type safety and code annotations. We use ESLint and simmilar to keep unified code style. We've experienced test-driven development with Jest or Vite as unit test tools. Most recently, we've been exploring fp-ts to embrace functional programming paradigms.",
+    "content": [
+      "Hidden on the server, a great power awaits",
+      ""
+    ],
     "hash": "backend",
-    "techs": [
-      "Node.js 12-18",
-      "Express",
-      "GraphQL",
-      "Apollo",
-      "AWS/Serverless"
-    ]
+    "techs": []
   },
   {
     "title": "Integrations",
-    "subtitle": "There is no magic without the data",
-    "trivia": "Our framework experience is lined up React. We started with class-based approach in the early years and gradually shifted towards functional components and hooks, always adopting best practises. We have experience in integrating React with Redux for advanced state management. Gatsby and later Next was used on several project from websites to complex applications. We're also having a working hands-on experience with Vue, mostly in stand-alone sections of larger projects.",
+    "content": [
+      "There is no magic without the data",
+      ""
+    ],
     "hash": "databases",
-    "techs": [
-      "TypeORM",
-      "MySQL",
-      "PostgreSQL",
-      "Redis",
-      "DynamoDB"
-    ]
+    "techs": []
   },
   {
     "title": "Build/deploy",
-    "subtitle": "A good CI/CD saves time and money",
-    "trivia": "The core technology is CSS3, which we applied on many website projects over the years. We are able to exploit the advantages of Sass or Less, such as nesting or mixins. Also experienced a lot of Material UI on app-style interfaces such as admins or dashboards. Most recently we've embraced Tailwind as a first choice when starting new web projects, to achieve perfect mix of development experience and website performance.",
+    "content": [
+      "A good CI/CD saves time and money",
+      ""
+    ],
     "hash": "build-deploy",
-    "techs": [
-      "Webpack",
-      "Vite",
-      "Gulp",
-      "Serverless framework",
-      "Github Actions"
-    ]
+    "techs": []
   }
 ]

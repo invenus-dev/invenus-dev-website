@@ -1,24 +1,25 @@
-import { StackTechnology } from 'TechStack';
+import { StackTechnologyGroup } from 'TechStack';
+import TechnologyTable from './TechnologyTable';
 
 type Props = {
-  stack: StackTechnology;
+  stack: StackTechnologyGroup;
 };
 
 const OneStack = ({ stack }: Props) => {
+  const { content, techs, subtitle } = stack;
   return (
-    <div className="px-2 pb-6 pt-10">
-      <div className="flex flex-col space-y-8 md:flex-row md:space-x-16 md:space-y-0">
-        <div className="md:w-1/4 xl:w-1/3">
-          <h4 className="font-mono text-secondary">Technologies used:</h4>
-          <ul className="mt-4  list-disc pl-5 font-mono xl:columns-2">
-            {stack.techs.map((tech) => (
-              <li key={tech}>{tech}</li>
-            ))}
-          </ul>
+    <div className="px-2 pb-6 pt-6">
+      <div>
+        <h3 className="mb-4 text-lg text-secondary">{subtitle}</h3>
+        <div className="flex flex-col space-y-5 sm:flex-row sm:space-x-10 sm:space-y-0">
+          {content.map((contentPart, index) => (
+            <p key={index} className="sm:max-w-sm">
+              {contentPart}
+            </p>
+          ))}
         </div>
-        <div className="md:w-3/4 xl:w-2/3">
-          <h5 className="text-2xl font-semibold text-secondary">{stack.subtitle}</h5>
-          <p className="mt-2">{stack.trivia}</p>
+        <div className="mt-8 rounded-lg">
+          <TechnologyTable techs={techs} />
         </div>
       </div>
     </div>
