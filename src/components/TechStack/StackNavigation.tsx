@@ -14,7 +14,10 @@ const StackNavigation = ({ stacks, currentStackHash, onSelect }: Props) => {
           <a
             className={currentStackHash === hash ? 'tech-nav active' : 'tech-nav'}
             href={`#${hash}`}
-            onClick={() => onSelect(hash)}
+            onClick={(e) => {
+              e.preventDefault();
+              onSelect(hash);
+            }}
           >
             {title}
           </a>

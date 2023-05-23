@@ -2,6 +2,7 @@ import { createRoot } from 'react-dom/client';
 import Cubicle from 'Cubicle';
 import TechStack from 'TechStack';
 import WithSvr from 'components/WithSvr';
+import { setUrlParameterValue, getParameterValue } from 'utils/paramRouter';
 import './css/main.css';
 
 // React DOM hydration
@@ -21,30 +22,54 @@ const techStackEl = document.getElementById('tech-stack');
 
 // when tech stack containers are detected
 if (techStackContainerEl && techStackTriggerEl && techStackEl) {
-  techStackTriggerEl.addEventListener('click', (event) => {
-    event.preventDefault();
-    techStackTriggerEl.classList.toggle('hidden');
-    techStackContainerEl.classList.toggle('hidden');
+  const openTechStack = () => {
+    techStackTriggerEl.classList.add('hidden');
+    techStackContainerEl.classList.remove('hidden');
 
     // init react TechStack component
     if (!techStackInitialized) {
       techStackInitialized = true;
       const stackFile = techStackEl.dataset?.stackFile as string;
 
-      // when tech stack is closed within
-      const onCloseHandler = () => {
-        techStackTriggerEl.classList.toggle('hidden');
-        techStackContainerEl.classList.toggle('hidden');
-      };
-
       // init react TechStack component with SVR settings
       createRoot(techStackEl).render(
         <WithSvr>
-          <TechStack stackFile={stackFile} onClose={onCloseHandler} />
+          <TechStack
+            stackFile={stackFile}
+            onClose={() => {
+              setUrlParameterValue('tech-stack', null);
+              closeTechStack();
+            }}
+          />
         </WithSvr>
       );
     }
+  };
+
+  const closeTechStack = () => {
+    techStackTriggerEl.classList.remove('hidden');
+    techStackContainerEl.classList.add('hidden');
+  };
+
+  const testTechStackFromUrl = () => {
+    const techStackParam = getParameterValue('tech-stack', null);
+    if (techStackParam === 'on') {
+      openTechStack();
+    } else {
+      closeTechStack();
+    }
+  };
+
+  techStackTriggerEl.addEventListener('click', (e) => {
+    e.preventDefault();
+    setUrlParameterValue('tech-stack', 'on');
+    openTechStack();
   });
+
+  testTechStackFromUrl();
+  window.onpopstate = () => {
+    testTechStackFromUrl();
+  };
 }
 
 // Sticky enable - intersection reaction when hero is off

@@ -2,8 +2,8 @@ import useSWR from 'swr';
 import AllStacks from 'components/TechStack/AllStacks';
 import StackNavigation from 'components/TechStack/StackNavigation';
 import OneStack from 'components/TechStack/OneStack';
-
-import { useState, MouseEvent } from 'react';
+import useTechParam from 'hooks/useTechParam';
+import { MouseEvent } from 'react';
 
 export type StackTechnology = {
   Tech: string;
@@ -27,19 +27,19 @@ type Props = {
 
 const TechStack = ({ stackFile, onClose }: Props) => {
   const { data, error, isLoading } = useSWR<StackTechnologyGroup[]>(stackFile);
-  const [currentStackHash, setCurrentStackHash] = useState<string | null>(null);
+  const { currentTech, setCurrentTech } = useTechParam();
 
   const onSelectHandler = (stackHash: string) => {
-    setCurrentStackHash(stackHash === currentStackHash ? null : stackHash);
+    setCurrentTech(stackHash);
   };
 
   const onCloseClickHandler = (e: MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    setCurrentStackHash(null);
+    setCurrentTech(null);
     onClose();
   };
 
-  const currentStack = data?.find(({ hash }) => hash === currentStackHash);
+  const currentStack = data?.find(({ hash }) => hash === currentTech);
 
   return (
     <div className="mx-auto max-w-screen-lg bg-primary px-6 pb-12 pt-6 text-tertiary-grade1 sm:rounded-lg sm:px-8">
@@ -55,17 +55,17 @@ const TechStack = ({ stackFile, onClose }: Props) => {
       </div>
       {isLoading && <div>Loading...</div>}
       {error && <div>Error while loading data</div>}
-      {data && currentStackHash && (
+      {data && currentTech && (
         <>
           <StackNavigation
             stacks={data}
-            currentStackHash={currentStackHash}
+            currentStackHash={currentTech}
             onSelect={onSelectHandler}
           />
           {currentStack && <OneStack stack={currentStack} />}
         </>
       )}
-      {data && !currentStackHash && <AllStacks stacks={data} onSelect={onSelectHandler} />}
+      {data && !currentTech && <AllStacks stacks={data} onSelect={onSelectHandler} />}
     </div>
   );
 };
