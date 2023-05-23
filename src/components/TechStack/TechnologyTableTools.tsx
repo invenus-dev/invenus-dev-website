@@ -54,7 +54,7 @@ export const TechnologyCell = ({ value, type, isTableCell = true }: TechnologyCe
     extraClasses = EXPERTISE_STYLE_MAPPINGS[value as ExpertiseKeys];
   }
 
-  if (typeLower === 'usual projects' || typeLower === 'notes') {
+  if (['usual projects', 'notes', 'specifics'].includes(typeLower)) {
     extraClasses = 'text-sm';
   }
 

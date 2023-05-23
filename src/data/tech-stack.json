@@ -13,21 +13,21 @@
         "Since": 2007,
         "Projects": "100+",
         "Level *": "Expert",
-        "Notes": "up to ES2022 specs"
+        "Notes": "Up to ES2022 specs"
       },
       {
         "Tech": "TypeScript",
         "Since": 2018,
         "Projects": "10+",
         "Level *": "Advanced",
-        "Notes": "preferred on new projects"
+        "Notes": "Preferred on new projects"
       },
       {
         "Tech": "Unit testing",
         "Since": 2014,
         "Projects": "8+ actively",
         "Level *": "Advanced",
-        "Notes": "mainly Jest, Vitest"
+        "Notes": "Mainly Jest, Vitest"
       },
       {
         "Tech": "Linting",
@@ -102,37 +102,184 @@
     "title": "UI",
     "subtitle": "Styling and CSS related topics",
     "content": [
-      "Without the look, there would be no feel. And since 2007, everything on the web was always about the look.",
+      "Without the look, there would be no feel. And even since the ancient times of 2007, everything on the web was always about the look.",
       "Starting with plan CSS, we leveraged a number of important tools and libraries to increase development speed and performance."
     ],
     "hash": "ui",
-    "techs": []
+    "techs": [
+      {
+        "Tech": "CSS",
+        "Since": 2007,
+        "Projects": "100+",
+        "Level *": "Expert",
+        "Notes": "CSS Level 3 with latest specs"
+      },
+      {
+        "Tech": "less / Sass / SCSS",
+        "Since": 2011,
+        "Projects": "90+",
+        "Level *": "Expert",
+        "Notes": "Default before tailwind"
+      },
+      {
+        "Tech": "Material UI",
+        "Since": 2016,
+        "Projects": "10+",
+        "Level *": "Advanced",
+        "Notes": "Mostly React, admin interfaces"
+      },
+      {
+        "Tech": "tailwindcss",
+        "Since": 2022,
+        "Projects": "3+",
+        "Level *": "Brief",
+        "Notes": "Go-to option for new projects"
+      }
+    ]
   },
   {
     "title": "Backend",
+    "subtitle": "Server-related components and technologies",
     "content": [
-      "Hidden on the server, a great power awaits",
-      ""
+      "Web development was always about the server, with the exception of static sites. This journey started with PHP, branched over Ruby on Rails, and finally settled in Node.js.",
+      "Time-wise, most experience with backend technologies was gained on PHP. The transfer to Node.js happened more recently and is a logical step, as we strive to unify languages."
     ],
     "hash": "backend",
-    "techs": []
+    "techs": [
+      {
+        "Tech": "PHP",
+        "Since": 2007,
+        "Projects": "100+",
+        "Level *": "Advanced",
+        "Specifics": "PHP 4 - 8, Wordpress, Drupal"
+      },
+      {
+        "Tech": "SQL",
+        "Since": 2007,
+        "Projects": "100+",
+        "Level *": "Advanced",
+        "Specifics": "MySQL/MariaDB, SQLite"
+      },
+      {
+        "Tech": "Node.js",
+        "Since": 2014,
+        "Projects": "15+",
+        "Level *": "Expert",
+        "Specifics": "Express, TypeORM"
+      },
+      {
+        "Tech": "NoSQL",
+        "Since": 2016,
+        "Projects": "5+",
+        "Level *": "Intermediate",
+        "Specifics": "Redis, MongoDB, DynamoDB"
+      },
+      {
+        "Tech": "GraphQL",
+        "Since": 2019,
+        "Projects": "5+",
+        "Level *": "Intermediate",
+        "Specifics": "mostly Apollo"
+      },
+      {
+        "Tech": "Serverless",
+        "Since": 2022,
+        "Projects": "2",
+        "Level *": "Brief",
+        "Specifics": "AWS, Serverless framework"
+      }
+    ]
   },
   {
-    "title": "Integrations",
+    "title": "Dev systems",
+    "subtitle": "An overview of used development tools and systems",
     "content": [
-      "There is no magic without the data",
-      ""
+      "Since the beginning we actively searched for ways to improve the development process. This led to the adoption and active usage of a number of systems.",
+      "That covers repositories, CI/CD tools, project management utilities, IDEs and more. We learned, that anything improving developer experience leads to better products."
     ],
-    "hash": "databases",
-    "techs": []
+    "hash": "dev-systems",
+    "techs": [
+      {
+        "Tech": "Repositories",
+        "Since": 2010,
+        "Projects": "-",
+        "Level *": "Expert",
+        "Specifics": "Git, Mercurial, SVN"
+      },
+      {
+        "Tech": "IDEs",
+        "Since": 2010,
+        "Projects": "-",
+        "Level *": "Expert",
+        "Specifics": "Visual Studio Code, WebStorm, Eclipse"
+      },
+      {
+        "Tech": "Project management",
+        "Since": 2010,
+        "Projects": "-",
+        "Level *": "Advanced",
+        "Specifics": "Asana, Jira, Trello, Shortcut, Basecamp and more"
+      },
+      {
+        "Tech": "CI/CD",
+        "Since": 2015,
+        "Projects": "30+",
+        "Level *": "Intermediate",
+        "Specifics": "Gitlab, GitHub"
+      },
+      {
+        "Tech": "Docker",
+        "Since": 2018,
+        "Projects": "10+",
+        "Level *": "Intermediate",
+        "Specifics": "docker-compose, Docker hub"
+      },
+      {
+        "Tech": "Kubernetes",
+        "Since": 2022,
+        "Projects": "1",
+        "Level *": "Brief",
+        "Specifics": "Google Cloud Platform"
+      }
+    ]
   },
   {
-    "title": "Build/deploy",
+    "title": "AI & Automations",
+    "subtitle": "Potential enablers, especially with recent AI developments",
     "content": [
-      "A good CI/CD saves time and money",
-      ""
+      "To bring value, products we develop must actually help people do their jobs better. This is where automations come in, and we have been working on data processing since early days.",
+      "The other important category is AI, which we actively employ in a number of roles, from development assistance to direct integration of AI models to products."
     ],
-    "hash": "build-deploy",
-    "techs": []
+    "hash": "ai-automations",
+    "techs": [
+      {
+        "Tech": "API integrations",
+        "Since": 2009,
+        "Projects": "50+",
+        "Level *": "Expert",
+        "Specifics": "REST, GraphQL, SOAP, Websockets"
+      },
+      {
+        "Tech": "Data mining & processing",
+        "Since": 2009,
+        "Projects": "30+",
+        "Level *": "Expert",
+        "Specifics": "Spreadsheets, CSV, JSON, XML, images, PDFs"
+      },
+      {
+        "Tech": "AI Tools",
+        "Since": 2020,
+        "Projects": "2",
+        "Level *": "Intermediate",
+        "Specifics": "OpenAI GPT models, Speech processing"
+      },
+      {
+        "Tech": "Machine Learning",
+        "Since": 2020,
+        "Projects": "-",
+        "Level *": "Brief",
+        "Specifics": "Mastered several courses from DeepLearning.ai"
+      }
+    ]
   }
 ]
