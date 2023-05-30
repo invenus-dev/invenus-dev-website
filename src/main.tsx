@@ -1,6 +1,7 @@
 import { createRoot } from 'react-dom/client';
 import Cubicle from 'Cubicle';
 import TechStack from 'TechStack';
+import Testimonials from 'Testimonials';
 import WithSvr from 'components/WithSvr';
 import { setUrlParameterValue, getParameterValue } from 'utils/paramRouter';
 import './css/main.css';
@@ -97,3 +98,15 @@ document.addEventListener('DOMContentLoaded', function () {
     observer.observe(triggerElement);
   }
 });
+
+// Testimonials
+const testimonialContainer = document.getElementById('testimonial-container');
+if (testimonialContainer) {
+  const testimonialsFile = testimonialContainer.dataset?.testimonialsFile as string;
+  // init react TechStack component with SVR settings
+  createRoot(testimonialContainer).render(
+    <WithSvr>
+      <Testimonials testimonialsFile={testimonialsFile} />
+    </WithSvr>
+  );
+}

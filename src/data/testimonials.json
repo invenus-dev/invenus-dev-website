@@ -1,0 +1,16 @@
+[
+  {
+    "id": "rubberducky",
+    "client": "Rubber Ducky Interactive",
+    "name": "David Jina",
+    "role": "CEO & founder",
+    "body": "We recently collaborated with invenus and their developer Jan to create a payment handling microservice, which exceeded our expectations. Our integration partner praised it as the fastest and easiest approval in 2022. Jan demonstrated exceptional expertise, effective communication, and adaptability throughout the project. We highly recommend invenus for your development needs."
+  },
+  {
+    "id": "truano",
+    "client": "Truano.com",
+    "name": "Marcel Láža",
+    "role": "Product owner",
+    "body": "We have continuously collaborated with invenus/Jan to improve and advance our tutoring services marketplace (Truano). Jan's deep knowledge of programming languages and experience exceeded our expectations. Throughout the project, Jan demonstrated exceptional expertise, effective communication, critical thinking, and adaptability, which were instrumental in changing critical points in our product and in launching new features. We recommend invenus for any development services and long-time cooperation."
+  }
+]
