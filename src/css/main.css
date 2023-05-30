@@ -29,6 +29,10 @@
   @apply mb-3 max-w-3xl text-lg;
 }
 
+.mainbody p.large {
+  @apply text-xl xms:text-2xl;
+}
+
 .mainbody ul {
   @apply list-disc pl-8 text-lg;
 }
@@ -46,6 +50,13 @@
 
 .btn svg {
   @apply ml-2 h-auto w-8;
+}
+
+.btn-primary {
+  @apply bg-secondary text-2xl
+  text-primary-dark
+  ring-primary-light hover:bg-secondary-dark
+  hover:text-primary-dark;
 }
 
 .btn-secondary {
