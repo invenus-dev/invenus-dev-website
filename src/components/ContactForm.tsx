@@ -1,7 +1,7 @@
 import FormField from './ContactForm/FormField';
 import { useState } from 'react';
+import { validateCaptcha } from '../utils/validateCaptcha';
 
-const siteKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
 const backendUrl = import.meta.env.VITE_CFORM_BACKEND_URL;
 
 const emptyValues = {
@@ -13,7 +13,9 @@ const emptyValues = {
 
 const emptyErrorValues = { ...emptyValues };
 
-type FormValues = typeof emptyValues;
+type FormValues = typeof emptyValues & {
+  'g-recaptcha-response'?: string;
+};
 
 const ContactForm = () => {
   const [values, setValues] = useState<FormValues>(emptyValues);
@@ -49,11 +51,18 @@ const ContactForm = () => {
     if (isSubmitting) return;
     if (validateForm()) {
       setIsSubmitting(true);
+      const valuesToSend = { ...values };
       try {
+        const captchaResult = await validateCaptcha();
+        if (!captchaResult) {
+          setResponse('Error sending message: Invalid captcha');
+          return;
+        }
+        valuesToSend['g-recaptcha-response'] = captchaResult;
         const response = await fetch(backendUrl, {
           method: 'POST',
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: new URLSearchParams(values).toString(),
+          body: new URLSearchParams(valuesToSend).toString(),
         });
         const data = await response.json();
         if (data.success) {
