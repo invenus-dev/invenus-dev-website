@@ -1,4 +1,4 @@
-import { StackTechnology } from 'TechStack';
+import { StackTechnology } from '../TechStack';
 import { TechnologyCell, PropertyHeader, MobileTechnology } from './TechnologyTableTools';
 
 type Props = {

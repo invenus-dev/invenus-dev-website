@@ -1,5 +1,5 @@
 import useSWR from 'swr';
-import Testimonial from 'components/Testimonial/Testimonial';
+import Testimonial from './Testimonial/Testimonial';
 
 export type TestimonialEntry = {
   id: string;

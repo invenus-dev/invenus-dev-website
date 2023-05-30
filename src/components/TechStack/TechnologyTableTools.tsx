@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { StackTechnology } from 'TechStack';
+import { StackTechnology } from '../TechStack';
 
 type TechnologyCellProps = {
   value: string | number;

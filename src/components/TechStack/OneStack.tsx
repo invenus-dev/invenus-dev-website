@@ -1,4 +1,4 @@
-import { StackTechnologyGroup } from 'TechStack';
+import { StackTechnologyGroup } from '../TechStack';
 import TechnologyTable from './TechnologyTable';
 
 type Props = {

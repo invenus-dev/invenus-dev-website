@@ -1,9 +1,9 @@
 import { createRoot } from 'react-dom/client';
-import Cubicle from 'Cubicle';
-import TechStack from 'TechStack';
-import Testimonials from 'Testimonials';
-import WithSvr from 'components/WithSvr';
-import { setUrlParameterValue, getParameterValue } from 'utils/paramRouter';
+import Cubicle from './components/Cubicle';
+import TechStack from './components/TechStack';
+import Testimonials from './components/Testimonials';
+import WithSvr from './components/WithSvr';
+import { setUrlParameterValue, getParameterValue } from './utils/paramRouter';
 import './css/main.css';
 
 // React DOM hydration

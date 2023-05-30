@@ -1,4 +1,4 @@
-import { TestimonialEntry } from '../../Testimonials';
+import { TestimonialEntry } from '../Testimonials';
 
 type Props = {
   testimonial: TestimonialEntry;

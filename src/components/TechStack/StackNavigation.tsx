@@ -1,4 +1,4 @@
-import { StackTechnologyGroup } from 'TechStack';
+import { StackTechnologyGroup } from '../TechStack';
 
 type Props = {
   stacks: StackTechnologyGroup[];

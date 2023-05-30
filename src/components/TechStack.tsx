@@ -1,8 +1,8 @@
 import useSWR from 'swr';
-import AllStacks from 'components/TechStack/AllStacks';
-import StackNavigation from 'components/TechStack/StackNavigation';
-import OneStack from 'components/TechStack/OneStack';
-import useTechParam from 'hooks/useTechParam';
+import AllStacks from './TechStack/AllStacks';
+import StackNavigation from './TechStack/StackNavigation';
+import OneStack from './TechStack/OneStack';
+import useTechParam from '../hooks/useTechParam';
 import { MouseEvent } from 'react';
 
 export type StackTechnology = {
