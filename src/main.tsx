@@ -2,6 +2,7 @@ import { createRoot } from 'react-dom/client';
 import Cubicle from './components/Cubicle';
 import TechStack from './components/TechStack';
 import Testimonials from './components/Testimonials';
+import ContactForm from './components/ContactForm';
 import WithSvr from './components/WithSvr';
 import { setUrlParameterValue, getParameterValue } from './utils/paramRouter';
 import './css/main.css';
@@ -109,4 +110,10 @@ if (testimonialContainer) {
       <Testimonials testimonialsFile={testimonialsFile} />
     </WithSvr>
   );
+}
+
+// Contact form
+const contactFormContainer = document.getElementById('contact-form-container');
+if (contactFormContainer) {
+  createRoot(contactFormContainer).render(<ContactForm />);
 }
