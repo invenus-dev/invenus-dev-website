@@ -1,6 +1,7 @@
 import FormField from './ContactForm/FormField';
 import { useState } from 'react';
 import { validateCaptcha } from '../utils/validateCaptcha';
+import * as EmailValidator from 'email-validator';
 
 const backendUrl = import.meta.env.VITE_CFORM_BACKEND_URL;
 
@@ -35,6 +36,8 @@ const ContactForm = () => {
     }
     if (!values.email) {
       errors.email = 'Email is required';
+    } else if (!EmailValidator.validate(values.email)) {
+      errors.email = 'Email is invalid';
     }
     if (!values.phone) {
       errors.phone = 'Phone is required';
@@ -83,43 +86,45 @@ const ContactForm = () => {
       {response === true ? <div className="text-green-500">Message sent successfully!</div> : null}
       {response !== true && response ? <div className="text-red-500">{response}</div> : null}
       {response === false && (
-        <form onSubmit={onSubmitHandler}>
-          <FormField
-            label="Name"
-            name="name"
-            type="text"
-            onChange={updateValue}
-            value={values.name}
-            error={errors.name}
-          />
-          <FormField
-            label="E-mail"
-            name="email"
-            type="email"
-            onChange={updateValue}
-            value={values.email}
-            error={errors.email}
-          />
-          <FormField
-            label="Phone"
-            name="phone"
-            type="text"
-            onChange={updateValue}
-            value={values.phone}
-            error={errors.phone}
-          />
-          <FormField
-            label="Your Message"
-            name="msg"
-            type="textarea"
-            onChange={updateValue}
-            value={values.msg}
-            error={errors.msg}
-          />
-          <button disabled={isSubmitting} type="submit">
-            Submit
-          </button>
-        </form>
+        <div className="max-w-xl md:w-1/2">
+          <form noValidate={true} onSubmit={onSubmitHandler}>
+            <FormField
+              label="Name"
+              name="name"
+              type="text"
+              onChange={updateValue}
+              value={values.name}
+              error={errors.name}
+            />
+            <FormField
+              label="E-mail"
+              name="email"
+              type="email"
+              onChange={updateValue}
+              value={values.email}
+              error={errors.email}
+            />
+            <FormField
+              label="Phone"
+              name="phone"
+              type="text"
+              onChange={updateValue}
+              value={values.phone}
+              error={errors.phone}
+            />
+            <FormField
+              label="Your Message"
+              name="msg"
+              type="textarea"
+              onChange={updateValue}
+              value={values.msg}
+              error={errors.msg}
+            />
+            <button disabled={isSubmitting} className="btn btn-submit" type="submit">
+              Submit
+            </button>
+          </form>
+        </div>
       )}
     </>
   );

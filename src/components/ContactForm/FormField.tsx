@@ -1,3 +1,5 @@
+import classNames from 'classnames';
+
 type Props = {
   label: string;
   name: string;
@@ -9,11 +11,13 @@ type Props = {
 
 const FormField = ({ label, name, type, value, onChange, error }: Props) => {
   return (
-    <div>
-      <label htmlFor={name}>{label}</label>
+    <div className="mb-4">
+      <label className="label-style" htmlFor={name}>
+        {label}
+      </label>
       {type === 'textarea' ? (
         <textarea
-          className="border-2 border-gray-700"
+          className={classNames('input-style', { 'input-error': error })}
           id={name}
           name={name}
           value={value}
@@ -21,7 +25,7 @@ const FormField = ({ label, name, type, value, onChange, error }: Props) => {
         />
       ) : (
         <input
-          className="border-2 border-gray-700"
+          className={classNames('input-style', { 'input-error': error })}
           id={name}
           name={name}
           type={type}
@@ -29,7 +33,7 @@ const FormField = ({ label, name, type, value, onChange, error }: Props) => {
           onChange={onChange}
         />
       )}
-      {error && <p>{error}</p>}
+      {error && <p className="error-text">{error}</p>}
     </div>
   );
 };
