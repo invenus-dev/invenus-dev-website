@@ -2,3 +2,5 @@ node_modules
 .yarn*
 yarn-error.log
 dist/
+.eslintcache
+.env.local

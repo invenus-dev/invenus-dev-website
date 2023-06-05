@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+
+.sticky-on {
+  @apply sticky top-0 z-10 drop-shadow-md;
+}
+
+.logo-symbol {
+  @apply hidden;
+}
+
+.sticky-on .logo-symbol {
+  @apply block w-6;
+}
+
+.mainbody .headnote {
+  @apply bg-secondary px-3 py-1 font-extrabold uppercase text-primary;
+}
+
+.mainbody h2 {
+  @apply mb-3 mt-1 font-heading text-6xl;
+}
+
+.mainbody h3 {
+  @apply mb-3 font-heading text-4xl;
+}
+
+.mainbody p {
+  @apply mb-3 max-w-3xl text-lg;
+}
+
+.mainbody p.large {
+  @apply text-xl xms:text-2xl;
+}
+
+.mainbody ul {
+  @apply list-disc pl-8 text-lg;
+}
+
+.cubicle {
+  @apply h-48 w-64 rounded-lg bg-primary text-secondary;
+}
+
+.btn {
+  @apply inline-flex items-center rounded-lg bg-gray-400 px-6 py-3 text-xl font-bold text-white shadow-lg 
+  outline-none ring-opacity-40 ring-offset-2
+  hover:translate-x-px hover:translate-y-px 
+  focus:ring-2;
+}
+
+.btn svg {
+  @apply ml-2 h-auto w-8;
+}
+
+.btn-primary {
+  @apply bg-secondary text-2xl
+  text-primary-dark
+  ring-primary-light hover:bg-secondary-dark
+  hover:text-primary-dark;
+}
+
+.btn-secondary {
+  @apply bg-secondary text-primary
+  ring-primary-light hover:bg-secondary-dark
+  hover:text-primary-dark;
+}
+
+/* https://dev.to/afif/a-multi-line-css-only-typewriter-effect-3op3 */
+/* TODO */
+
+.benefit-card {
+  @apply rounded-md bg-gray-200 p-8
+  transition duration-300 
+  md:hover:translate-y-1 md:hover:drop-shadow-lg;
+}
+
+.benefit-card__head {
+  @apply flex items-center;
+}
+
+.benefit-card__head h3 {
+  @apply ml-4 text-2xl font-bold text-primary;
+}
+
+.benefit-card__head img {
+  @apply h-8 w-8;
+}
+
+.benefit-card__text {
+  @apply mt-4 text-lg;
+}
+
+.tech-nav {
+  @apply inline-block rounded-full bg-primary-light px-6 py-2 font-semibold tracking-wide text-tertiary hover:text-secondary;
+}
+
+.tech-nav.active {
+  @apply bg-secondary text-primary;
+}
+
+@tailwind utilities;
