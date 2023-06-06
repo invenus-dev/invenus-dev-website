@@ -58,7 +58,7 @@
 }
 
 .cubicle {
-  @apply h-48 w-64 rounded-lg bg-primary text-secondary;
+  @apply h-48 w-64 rounded-lg bg-primary;
 }
 
 .btn {
@@ -89,9 +89,6 @@
   @apply bg-primary text-tertiary
   ring-secondary hover:bg-primary-dark;
 }
-
-/* https://dev.to/afif/a-multi-line-css-only-typewriter-effect-3op3 */
-/* TODO */
 
 .benefit-card {
   @apply rounded-md bg-gray-200 p-8
@@ -137,6 +134,17 @@
 
 .error-text {
   @apply text-sm text-red-500;
+}
+
+@keyframes blink {
+  0%,
+  49% {
+    background: white;
+  }
+  50%,
+  100% {
+    background: transparent;
+  }
 }
 
 @tailwind utilities;
