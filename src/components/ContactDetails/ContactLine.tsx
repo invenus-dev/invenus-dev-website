@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-
+import { useState } from 'react';
 type Props = {
   label: string;
   value: string;
@@ -9,6 +9,17 @@ type Props = {
 
 const ContactLine = ({ label, value, isVertical = false, isYellow = false }: Props) => {
   const parsedValue = value.replace(/,\s/g, '<br />');
+  const [isCopied, setIsCopied] = useState(false);
+  const handleInteraction = (event: React.MouseEvent | React.KeyboardEvent) => {
+    event.preventDefault();
+    navigator.clipboard.writeText(value).then(() => {
+      setIsCopied(true);
+      setTimeout(() => {
+        setIsCopied(false);
+      }, 3000);
+    });
+  };
+
   return (
     <div
       className={classNames('mb-2 mt-1 flex', isVertical ? 'flex-col items-start' : 'items-center')}
@@ -16,12 +27,23 @@ const ContactLine = ({ label, value, isVertical = false, isYellow = false }: Pro
       <div className={classNames('mr-2', isYellow ? 'text-secondary-darker' : 'text-gray-500')}>
         {label}
       </div>
+      {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
       <div
+        onClick={handleInteraction}
+        onKeyUp={handleInteraction}
         className={classNames(
-          'flex space-x-2 rounded-md px-4 py-2',
+          'group relative flex cursor-pointer space-x-2 rounded-md px-4 py-2',
           isYellow ? 'bg-secondary' : 'bg-gray-100'
         )}
       >
+        <div
+          className={classNames(
+            'absolute bottom-full mb-2 transform rounded bg-gray-700 px-2 py-1 text-sm text-white',
+            isCopied ? 'animate-in' : 'hidden'
+          )}
+        >
+          Copied to clipboard!
+        </div>
         <div className="" dangerouslySetInnerHTML={{ __html: parsedValue }} />
         <svg
           xmlns="http://www.w3.org/2000/svg"

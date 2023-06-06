@@ -147,4 +147,8 @@
   }
 }
 
+.animate-in {
+  @apply block animate-fade animate-duration-200 animate-once animate-ease-in;
+}
+
 @tailwind utilities;
