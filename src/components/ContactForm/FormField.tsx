@@ -18,6 +18,7 @@ const FormField = ({ label, name, type, value, onChange, error }: Props) => {
       {type === 'textarea' ? (
         <textarea
           className={classNames('input-style', { 'input-error': error })}
+          rows={5}
           id={name}
           name={name}
           value={value}

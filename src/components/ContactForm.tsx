@@ -2,6 +2,9 @@ import FormField from './ContactForm/FormField';
 import { useState } from 'react';
 import { validateCaptcha } from '../utils/validateCaptcha';
 import * as EmailValidator from 'email-validator';
+import FormResponse from './ContactForm/FormResponse';
+import Waiting from './ContactForm/Waiting';
+import classNames from 'classnames';
 
 const backendUrl = import.meta.env.VITE_CFORM_BACKEND_URL;
 
@@ -32,18 +35,15 @@ const ContactForm = () => {
   const validateForm = () => {
     const errors: FormValues = { ...emptyErrorValues };
     if (!values.name) {
-      errors.name = 'Name is required';
+      errors.name = 'Please fill in - I need to know your name.';
     }
     if (!values.email) {
-      errors.email = 'Email is required';
+      errors.email = 'Please fill in - I need a way to contact you.';
     } else if (!EmailValidator.validate(values.email)) {
-      errors.email = 'Email is invalid';
-    }
-    if (!values.phone) {
-      errors.phone = 'Phone is required';
+      errors.email = 'Sorry, but e-mail is not in valid format';
     }
     if (!values.msg) {
-      errors.msg = 'Message is required';
+      errors.msg = 'Please write at least a short note - so that we know what to discuss.';
     }
     setErrors(errors);
     return Object.values(errors).every((x) => !x);
@@ -70,24 +70,53 @@ const ContactForm = () => {
         const data = await response.json();
         if (data.success) {
           setResponse(true);
+          setIsSubmitting(false);
         } else {
           console.error(data);
           setResponse('Error sending message: ' + data.error);
+          setIsSubmitting(false);
         }
       } catch (err) {
         console.error(err);
         setResponse('Error sending message: ' + err);
+        setIsSubmitting(false);
       }
     }
   };
 
   return (
     <>
-      {response === true ? <div className="text-green-500">Message sent successfully!</div> : null}
-      {response !== true && response ? <div className="text-red-500">{response}</div> : null}
-      {response === false && (
-        <div className="max-w-xl md:w-1/2">
-          <form noValidate={true} onSubmit={onSubmitHandler}>
+      <div className="relative max-w-xl md:w-1/2">
+        {response === true && (
+          <FormResponse heading="Message sent successfully!">
+            <p>
+              Let me get back to you as soon as possible.
+              <br />I usually respond within two business days.
+            </p>
+            <p>
+              <strong>Regards, Jan</strong>
+            </p>
+          </FormResponse>
+        )}
+        {response !== true && response && (
+          <FormResponse heading="Oops - message was not sent" isError={true}>
+            <p>
+              Please try again later or contact me directly at &nbsp;
+              <a className="underline" href="mailto:jan@invenus.dev">
+                jan@invenus.dev
+              </a>
+            </p>
+            <p>The issue was reported as follows...</p>
+            <p>{response}</p>
+          </FormResponse>
+        )}
+        {isSubmitting && <Waiting text="Processing..." />}
+        {response === false && (
+          <form
+            noValidate={true}
+            onSubmit={onSubmitHandler}
+            className={classNames({ blur: isSubmitting })}
+          >
             <FormField
               label="Name"
               name="name"
@@ -120,12 +149,18 @@ const ContactForm = () => {
               value={values.msg}
               error={errors.msg}
             />
-            <button disabled={isSubmitting} className="btn btn-submit" type="submit">
-              Submit
-            </button>
+            <div className="flex items-center space-x-6">
+              <button disabled={isSubmitting} className="btn btn-submit" type="submit">
+                Submit
+              </button>
+              <p className="small">
+                Your personal details are collected only for the purpose of contacting you back
+                &ndash; thanks for understanding!
+              </p>
+            </div>
           </form>
-        </div>
-      )}
+        )}
+      </div>
     </>
   );
 };
