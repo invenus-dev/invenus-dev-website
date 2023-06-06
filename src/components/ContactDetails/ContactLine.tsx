@@ -13,11 +13,13 @@ const ContactLine = ({ label, value, isVertical = false, isYellow = false }: Pro
     <div
       className={classNames('mb-2 mt-1 flex', isVertical ? 'flex-col items-start' : 'items-center')}
     >
-      <div className="mr-2 text-gray-500">{label}</div>
+      <div className={classNames('mr-2', isYellow ? 'text-secondary-darker' : 'text-gray-500')}>
+        {label}
+      </div>
       <div
         className={classNames(
           'flex space-x-2 rounded-md px-4 py-2',
-          isYellow ? 'bg-secondary' : 'bg-gray-200'
+          isYellow ? 'bg-secondary' : 'bg-gray-100'
         )}
       >
         <div className="" dangerouslySetInnerHTML={{ __html: parsedValue }} />
@@ -27,7 +29,7 @@ const ContactLine = ({ label, value, isVertical = false, isYellow = false }: Pro
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="currentColor"
-          className={classNames('h-6 w-6', isYellow ? 'text-secondary-darker' : 'text-gray-600')}
+          className={classNames('h-6 w-6', isYellow ? 'text-secondary-darker' : 'text-gray-500')}
         >
           <path
             strokeLinecap="round"
