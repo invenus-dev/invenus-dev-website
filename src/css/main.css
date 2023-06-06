@@ -29,6 +29,14 @@
   @apply mb-3 font-heading text-4xl;
 }
 
+.mainbody h4 {
+  @apply mt-2 text-lg font-bold;
+}
+
+.mainbody h5 {
+  @apply mt-6;
+}
+
 .mainbody p {
   @apply mb-3 max-w-3xl text-lg;
 }

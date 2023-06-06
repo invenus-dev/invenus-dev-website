@@ -85,96 +85,95 @@ const ContactForm = () => {
   };
 
   return (
-    <>
-      <div className="relative max-w-xl md:w-1/2">
-        {response === true && (
-          <FormResponse heading="Message sent successfully!">
-            <p>
-              Let me get back to you as soon as possible.
-              <br />I usually respond within two business days.
-            </p>
-            <p>
-              <strong>Regards, Jan</strong>
-            </p>
-          </FormResponse>
-        )}
-        {response !== true && response && (
-          <FormResponse heading="Oops - message was not sent" isError={true}>
-            <p>
-              Please try again later or contact me directly at &nbsp;
-              <a className="underline" href="mailto:jan@invenus.dev">
-                jan@invenus.dev
+    <div className="lg:max-w-lg">
+      <h3>Leave a message</h3>
+      {response === true && (
+        <FormResponse heading="Message sent successfully!">
+          <p>
+            Let me get back to you as soon as possible.
+            <br />I usually respond within two business days.
+          </p>
+          <p>
+            <strong>Regards, Jan</strong>
+          </p>
+        </FormResponse>
+      )}
+      {response !== true && response && (
+        <FormResponse heading="Oops - message was not sent" isError={true}>
+          <p>
+            Please try again later or contact me directly at &nbsp;
+            <a className="underline" href="mailto:jan@invenus.dev">
+              jan@invenus.dev
+            </a>
+          </p>
+          <p>The issue was reported as follows...</p>
+          <p>{response}</p>
+        </FormResponse>
+      )}
+      {isSubmitting && <Waiting text="Processing..." />}
+      {response === false && (
+        <form
+          noValidate={true}
+          onSubmit={onSubmitHandler}
+          className={classNames({ blur: isSubmitting })}
+        >
+          <FormField
+            label="Name"
+            name="name"
+            type="text"
+            onChange={updateValue}
+            value={values.name}
+            error={errors.name}
+          />
+          <FormField
+            label="E-mail"
+            name="email"
+            type="email"
+            onChange={updateValue}
+            value={values.email}
+            error={errors.email}
+          />
+          <FormField
+            label="Phone"
+            name="phone"
+            type="text"
+            onChange={updateValue}
+            value={values.phone}
+            error={errors.phone}
+          />
+          <FormField
+            label="Your Message"
+            name="msg"
+            type="textarea"
+            onChange={updateValue}
+            value={values.msg}
+            error={errors.msg}
+          />
+          <div className="flex items-center space-x-6">
+            <button disabled={isSubmitting} className="btn btn-submit" type="submit">
+              Submit
+            </button>
+            <p className="small">
+              Your personal details are collected only for the purpose of contacting you back and
+              are not shared with any 3<sup>rd</sup> party outside of invenus except for{' '}
+              <a
+                target="_blank"
+                className="underline"
+                href="https://www.google.com/recaptcha/about/"
+                rel="noreferrer"
+              >
+                ReCaptcha SPAM protection
               </a>
+              . To review data invenus collected or request data deletion, please{' '}
+              <a href="mailto:jan@invenus.dev" className="underline">
+                contact me
+              </a>
+              .
             </p>
-            <p>The issue was reported as follows...</p>
-            <p>{response}</p>
-          </FormResponse>
-        )}
-        {isSubmitting && <Waiting text="Processing..." />}
-        {response === false && (
-          <form
-            noValidate={true}
-            onSubmit={onSubmitHandler}
-            className={classNames({ blur: isSubmitting })}
-          >
-            <FormField
-              label="Name"
-              name="name"
-              type="text"
-              onChange={updateValue}
-              value={values.name}
-              error={errors.name}
-            />
-            <FormField
-              label="E-mail"
-              name="email"
-              type="email"
-              onChange={updateValue}
-              value={values.email}
-              error={errors.email}
-            />
-            <FormField
-              label="Phone"
-              name="phone"
-              type="text"
-              onChange={updateValue}
-              value={values.phone}
-              error={errors.phone}
-            />
-            <FormField
-              label="Your Message"
-              name="msg"
-              type="textarea"
-              onChange={updateValue}
-              value={values.msg}
-              error={errors.msg}
-            />
-            <div className="flex items-center space-x-6">
-              <button disabled={isSubmitting} className="btn btn-submit" type="submit">
-                Submit
-              </button>
-              <p className="small">
-                Your personal details are collected only for the purpose of contacting you back and
-                are not shared with any 3<sup>rd</sup> party outside of invenus except for{' '}
-                <a
-                  target="_blank"
-                  className="underline"
-                  href="https://www.google.com/recaptcha/about/"
-                  rel="noreferrer"
-                >
-                  ReCaptcha SPAM protection
-                </a>
-                . To review data invenus collected or request data deletion, please{' '}
-                <a href="mailto:jan@invenus.dev" className="underline">
-                  contact me
-                </a>
-                .
-              </p>
-            </div>
-          </form>
-        )}
-      </div>
-    </>
+          </div>
+        </form>
+      )}
+    </div>
   );
 };
 
