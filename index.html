@@ -25,21 +25,31 @@
   </head>
   <body>
     <nav class="sticky-header bg-primary px-4 py-2 text-tertiary">
-      <div class="container mx-auto flex items-center justify-between">
-        <div>
-          <img
-            class="logo-symbol"
-            src="/src/assets/icons/invenus-logo-symbol.svg"
-            alt="invenus logo symbol"
-          />
+      <div class="flex items-center justify-between space-x-8 px-2 lg:container lg:mx-auto lg:px-0">
+        <div class="flex items-center space-x-6 lg:space-x-6">
+          <a href="#" class="small-logo js-anchor hidden">
+            <img
+              class="block w-8"
+              src="/src/assets/icons/invenus-logo-symbol.svg"
+              alt="invenus logo symbol"
+            />
+          </a>
+          <a href="#about" class="nav-link js-anchor">About</a>
+          <a href="#tech-stack" id="tech-stack-trigger-nav" class="nav-link js-anchor"
+            >Tech stack</a
+          >
+          <a href="#benefits" class="nav-link js-anchor">Benefits</a>
+          <a href="#testimonials" class="nav-link js-anchor">Testimonials</a>
+          <a href="#our-story" class="nav-link js-anchor">Our Story</a>
+          <a href="#contact" class="nav-link js-anchor">Contact</a>
+          <a href="#faq" class="nav-link js-anchor">FAQ</a>
         </div>
         <div>
-          <a href="https://github.com/invenus-dev">Github</a>
-          <a href="mailto:jan@invenus.dev">Contact Me</a>
+          <a href="#contact" class="btn btn-nav js-anchor">Contact us</a>
         </div>
       </div>
     </nav>
-    <main id="sticky-trigger" class="bg-primary px-4 pb-20 pt-8">
+    <main class="bg-primary px-4 pb-20 pt-8">
       <div
         class="container mx-auto flex flex-col space-x-0 space-y-12 md:flex-row md:space-x-8 md:space-y-0"
       >
@@ -59,7 +69,7 @@
       </div>
     </main>
     <section class="py-32 md:container md:mx-auto">
-      <div class="flex">
+      <div id="sticky-trigger" data-target="#about" class="js-scroll-target flex">
         <div class="hidden w-1/3 items-center justify-center text-lg lg:flex">
           <div
             class="cubicle"
@@ -87,7 +97,7 @@
             <li>supporting wide range of setups, monolith or service-based.</li>
           </ul>
           <p class="mt-6">
-            <a href="#tech-stack" id="tech-stack-trigger" class="btn btn-secondary"
+            <a href="#tech-stack" id="tech-stack-trigger" class="btn btn-secondary js-anchor"
               >Explore in more detail
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -110,13 +120,17 @@
         </div>
       </div>
     </section>
-    <section id="tech-stack-container" class="hidden pb-10">
+    <section
+      id="tech-stack-container"
+      data-target="#tech-stack"
+      class="js-scroll-target hidden pb-10"
+    >
       <div class="md:container sm:px-8 md:mx-auto lg:px-6">
         <div id="tech-stack" data-stack-file="/data/tech-stack.json"></div>
       </div>
     </section>
     <section class="bg-tertiary-grade1 py-24">
-      <div class="px-8 md:container md:mx-auto lg:px-6">
+      <div data-target="#benefits" class="js-scroll-target px-8 md:container md:mx-auto lg:px-6">
         <div class="mainbody mb-12">
           <span class="headnote">Why with us</span>
           <h2>Competitive edge</h2>
@@ -238,7 +252,10 @@
       </div>
     </section>
     <section class="py-32">
-      <div class="mainbody container mx-auto mb-12 px-8">
+      <div
+        data-target="#testimonials"
+        class="mainbody js-scroll-target container mx-auto mb-12 px-8"
+      >
         <span class="headnote">Testimonials</span>
         <h2>What do clients say about us</h2>
       </div>
@@ -248,7 +265,7 @@
         data-testimonials-file="/data/testimonials.json"
       ></div>
     </section>
-    <section class="mb-32">
+    <section data-target="#our-story" class="js-scroll-target mb-32">
       <div class="px-8 md:container md:mx-auto lg:px-6">
         <div class="flex">
           <div class="hidden w-1/3 items-center justify-center text-lg lg:flex">
@@ -301,7 +318,7 @@
       </div>
     </section>
     <section class="py-32">
-      <div class="mainbody container mx-auto mb-12 px-8">
+      <div data-target="#contact" class="js-scroll-target mainbody container mx-auto mb-12 px-8">
         <div class="mb-4">
           <span class="headnote">Interested in cooperation?</span>
           <h2>Contact Jan with your idea</h2>

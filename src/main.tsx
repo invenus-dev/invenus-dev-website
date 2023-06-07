@@ -22,7 +22,9 @@ rootEls.map((rootEl) => {
 let techStackInitialized = false;
 const techStackContainerEl = document.getElementById('tech-stack-container');
 const techStackTriggerEl = document.getElementById('tech-stack-trigger');
+const techStackTriggerFromNav = document.getElementById('tech-stack-trigger-nav');
 const techStackEl = document.getElementById('tech-stack');
+const TECH_STACK_SCROLL_BACK_ON_CLOSE = 230;
 
 // when tech stack containers are detected
 if (techStackContainerEl && techStackTriggerEl && techStackEl) {
@@ -53,6 +55,10 @@ if (techStackContainerEl && techStackTriggerEl && techStackEl) {
   const closeTechStack = () => {
     techStackTriggerEl.classList.remove('hidden');
     techStackContainerEl.classList.add('hidden');
+    window.scrollTo({
+      top: window.pageYOffset - TECH_STACK_SCROLL_BACK_ON_CLOSE,
+      behavior: 'smooth',
+    });
   };
 
   const testTechStackFromUrl = () => {
@@ -70,37 +76,21 @@ if (techStackContainerEl && techStackTriggerEl && techStackEl) {
     openTechStack();
   });
 
+  if (techStackTriggerFromNav) {
+    techStackTriggerFromNav.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (techStackContainerEl.classList.contains('hidden')) {
+        setUrlParameterValue('tech-stack', 'on');
+        openTechStack();
+      }
+    });
+  }
+
   testTechStackFromUrl();
   window.onpopstate = () => {
     testTechStackFromUrl();
   };
 }
-
-// Sticky enable - intersection reaction when hero is off
-document.addEventListener('DOMContentLoaded', function () {
-  const header = document.querySelector('.sticky-header');
-  const triggerElement = document.getElementById('sticky-trigger');
-
-  if (header && triggerElement) {
-    // hook intersection observer to drive sticky header display
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            header.classList.remove('sticky-on');
-          } else {
-            header.classList.add('sticky-on');
-          }
-        });
-      },
-      {
-        root: null,
-        threshold: 0,
-      }
-    );
-    observer.observe(triggerElement);
-  }
-});
 
 // Testimonials
 const testimonialContainer = document.getElementById('testimonial-container');
@@ -145,3 +135,56 @@ if (contactDetailsContainer) {
     <ContactDetails data={getContactValues(contactDetailsContainer)} />
   );
 }
+
+// scroll handlers
+document.addEventListener('DOMContentLoaded', function () {
+  const FIXED_OFFSET = 80;
+
+  // js-anchor listeners
+  const scrollLinks = document.querySelectorAll('a.js-anchor');
+  scrollLinks.forEach((scrollLink) => {
+    scrollLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetId = scrollLink.getAttribute('href') as string;
+
+      // special case handling:
+
+      let targetTop = 0;
+      if (targetId && targetId !== '#') {
+        // find top of the element
+        const targetEl = document.querySelector(
+          `.js-scroll-target[data-target="${targetId}"]`
+        ) as HTMLElement;
+        if (targetEl) {
+          targetTop = targetEl.getBoundingClientRect().top + window.pageYOffset - FIXED_OFFSET;
+        }
+        // reduce by existing nav which is sticky
+        const navSticky = document.querySelector('nav.sticky-on') as HTMLElement;
+        if (navSticky) {
+          targetTop -= navSticky.getBoundingClientRect().height;
+        }
+      }
+
+      // perform scroll
+      window.scrollTo({
+        top: targetTop,
+        behavior: 'smooth',
+      });
+    });
+  });
+
+  // scroll event handler - controls sticky menu and highlights
+  const header = document.querySelector('nav');
+  const triggerElement = document.getElementById('sticky-trigger');
+
+  window.addEventListener('scroll', () => {
+    if (header && triggerElement) {
+      const triggerTop = triggerElement.getBoundingClientRect().top;
+      if (window.pageYOffset > triggerTop + FIXED_OFFSET) {
+        header.classList.add('sticky-on');
+      } else {
+        header.classList.remove('sticky-on');
+      }
+    }
+  });
+});
