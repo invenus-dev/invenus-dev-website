@@ -17,9 +17,9 @@ const ContactDetails = ({ data }: Props) => {
   return (
     <div className="">
       <h4>Business details</h4>
-      <div className="mb-10 flex space-x-8">
-        <ContactLine label={LABELS.business} value={data.business} isVertical={true} />
-        <ContactLine label={LABELS.vat} value={data.vat} isVertical={true} />
+      <div className="mb-10 mt-6">
+        <ContactLine label={LABELS.vat} value={data.vat} />
+        <ContactLine label={LABELS.business} value={data.business} />
       </div>
       <h4>Bank accounts</h4>
       <h5>1. EUR / USD / GBP / CZK payments:</h5>

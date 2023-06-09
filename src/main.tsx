@@ -44,6 +44,10 @@ if (techStackContainerEl && techStackTriggerEl && techStackEl) {
             stackFile={stackFile}
             onClose={() => {
               setUrlParameterValue('tech-stack', null);
+              window.scrollTo({
+                top: window.scrollY - TECH_STACK_SCROLL_BACK_ON_CLOSE,
+                behavior: 'smooth',
+              });
               closeTechStack();
             }}
           />
@@ -55,10 +59,6 @@ if (techStackContainerEl && techStackTriggerEl && techStackEl) {
   const closeTechStack = () => {
     techStackTriggerEl.classList.remove('hidden');
     techStackContainerEl.classList.add('hidden');
-    window.scrollTo({
-      top: window.pageYOffset - TECH_STACK_SCROLL_BACK_ON_CLOSE,
-      behavior: 'smooth',
-    });
   };
 
   const testTechStackFromUrl = () => {
@@ -147,8 +147,6 @@ document.addEventListener('DOMContentLoaded', function () {
       e.preventDefault();
       const targetId = scrollLink.getAttribute('href') as string;
 
-      // special case handling:
-
       let targetTop = 0;
       if (targetId && targetId !== '#') {
         // find top of the element
@@ -180,7 +178,7 @@ document.addEventListener('DOMContentLoaded', function () {
   window.addEventListener('scroll', () => {
     if (header && triggerElement) {
       const triggerTop = triggerElement.getBoundingClientRect().top;
-      if (window.pageYOffset > triggerTop + FIXED_OFFSET) {
+      if (window.scrollY > triggerTop + FIXED_OFFSET) {
         header.classList.add('sticky-on');
       } else {
         header.classList.remove('sticky-on');

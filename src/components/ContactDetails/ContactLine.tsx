@@ -24,7 +24,7 @@ const ContactLine = ({ label, value, isVertical = false, isYellow = false }: Pro
     <div
       className={classNames('mb-2 mt-1 flex', isVertical ? 'flex-col items-start' : 'items-center')}
     >
-      <div className={classNames('mr-2', isYellow ? 'text-secondary-darker' : 'text-gray-500')}>
+      <div className={classNames('mr-4', isYellow ? 'text-secondary-darker' : 'text-gray-500')}>
         {label}
       </div>
       {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}

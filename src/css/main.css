@@ -148,6 +148,10 @@
   @apply text-sm text-red-500;
 }
 
+.social-icon {
+  @apply my-4 block h-12 w-12;
+}
+
 @keyframes blink {
   0%,
   49% {
