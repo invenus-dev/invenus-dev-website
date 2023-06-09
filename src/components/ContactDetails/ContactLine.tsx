@@ -22,9 +22,17 @@ const ContactLine = ({ label, value, isVertical = false, isYellow = false }: Pro
 
   return (
     <div
-      className={classNames('mb-2 mt-1 flex', isVertical ? 'flex-col items-start' : 'items-center')}
+      className={classNames(
+        'mb-2 mt-1 flex min-w-fit',
+        isVertical ? 'flex-col items-start' : 'items-center'
+      )}
     >
-      <div className={classNames('mr-4', isYellow ? 'text-secondary-darker' : 'text-gray-500')}>
+      <div
+        className={classNames(
+          'mr-4 text-sm xs:text-base',
+          isYellow ? 'text-secondary-darker' : 'text-gray-500'
+        )}
+      >
         {label}
       </div>
       {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
@@ -44,7 +52,10 @@ const ContactLine = ({ label, value, isVertical = false, isYellow = false }: Pro
         >
           Copied to clipboard!
         </div>
-        <div className="" dangerouslySetInnerHTML={{ __html: parsedValue }} />
+        <div
+          className="whitespace-nowrap text-sm xs:text-base"
+          dangerouslySetInnerHTML={{ __html: parsedValue }}
+        />
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"

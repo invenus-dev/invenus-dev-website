@@ -149,7 +149,7 @@ const ContactForm = () => {
             value={values.msg}
             error={errors.msg}
           />
-          <div className="flex items-center space-x-6">
+          <div className="flex flex-col items-center space-y-6 xs:flex-row xs:space-x-6 xs:space-y-0">
             <button disabled={isSubmitting} className="btn btn-submit" type="submit">
               Submit
             </button>

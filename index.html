@@ -274,7 +274,7 @@
               data-text="/* tl;dr: invenus kicked off in 2023 and is built on significant experience. */"
             ></div>
           </div>
-          <div class="mainbody w-1/2 lg:w-2/3 lg:px-0 lg:pr-4">
+          <div class="mainbody w-full lg:w-2/3 lg:px-0 lg:pr-4">
             <span class="headnote">Jan's story</span>
             <h2>How did we get here</h2>
             <p>
@@ -292,14 +292,22 @@
         </div>
       </div>
     </section>
-    <section class="bg-primary py-24">
-      <div class="flex">
-        <div class="flex w-1/2 justify-center">
-          <img src="/src/assets/software_house.png" alt="building a software house" />
+    <section class="bg-primary px-6 py-24 sm:px-0">
+      <div
+        class="flex flex-col items-center space-y-8 lg:flex-row lg:space-x-16 lg:space-y-0 xl:space-x-0"
+      >
+        <div class="ml-0 flex justify-center lg:ml-8 lg:w-1/3 xl:w-1/2">
+          <img
+            src="/src/assets/software_house.png"
+            class="h-auto w-full max-w-lg sm:w-auto"
+            alt="building a software house"
+          />
         </div>
-        <div class="mainbody mainbody-light w-1/2 max-w-xl">
-          <h2>Building a software house<br /><span class="text-secondary">for the future</span></h2>
-          <p>
+        <div class="mainbody mainbody-light max-w-xl lg:w-2/3 xl:w-1/2">
+          <h2 class="text-center lg:text-left">
+            Building a software house<br /><span class="text-secondary">for the future</span>
+          </h2>
+          <p class="mt-8 lg:mt-0">
             While <strong>invenus</strong> is still in early phases, it is building on a well of
             experience and knowledge. And it is expected to grow in the future, bringing onboard
             people with similar mindset as Jan. With the advent of AI revolution, we expect a lot of
@@ -318,21 +326,26 @@
       </div>
     </section>
     <section class="py-32">
-      <div data-target="#contact" class="js-scroll-target mainbody container mx-auto mb-12 px-8">
+      <div
+        data-target="#contact"
+        class="js-scroll-target mainbody mb-12 lg:container lg:mx-auto lg:px-8"
+      >
         <div class="mb-4">
-          <span class="headnote">Interested in cooperation?</span>
-          <h2>Contact Jan with your idea</h2>
-          <div class="" id="contact-main-container">
+          <div class="px-4 sm:px-12 lg:px-0">
+            <span class="headnote">Interested in cooperation?</span>
+            <h2>Contact Jan with your idea</h2>
+          </div>
+          <div id="contact-main-container">
             <span data-key="name">Jan Malý</span>
             <span data-key="email">jan@invenus.dev</span>
             <span data-key="phone">+420 722 211 443</span>
           </div>
         </div>
         <div
-          class="flex flex-col items-start space-y-8 px-12 lg:flex-row lg:space-x-12 lg:space-y-0 lg:px-0"
+          class="flex flex-col flex-wrap items-start space-y-16 px-4 sm:px-12 lg:flex-row lg:space-x-12 lg:space-y-0 lg:px-0 xl:flex-nowrap"
         >
-          <div class="relative lg:w-1/2" id="contact-form-container"></div>
-          <div class="lg:w-1/4" id="contact-details-container">
+          <div class="relative xl:w-1/2" id="contact-form-container"></div>
+          <div class="w-full lg:mt-0 lg:w-auto xl:w-1/4" id="contact-details-container">
             <span data-key="business"
               >invenus s.r.o., Sukova 49/4, 602 00 Brno, Czech Republic</span
             >
@@ -341,9 +354,9 @@
             <span data-key="bank-eu-swift">CITFCZPPXXX</span>
             <span data-key="bank-cz">2501382798/2010</span>
           </div>
-          <div class="mainbody flex flex-col items-center justify-start lg:w-1/4">
+          <div class="mainbody flex flex-col justify-start xl:w-1/4 xl:items-center">
             <h4>Follow us on:</h4>
-            <div>
+            <div class="flex flex-row space-x-8 xl:flex-col xl:space-x-0">
               <a
                 href="https://www.linkedin.com/company/invenus/"
                 title="invenus.dev LinkedIn Page"
