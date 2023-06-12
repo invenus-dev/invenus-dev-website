@@ -1,0 +1,27 @@
+[
+  {
+    "key": "pricing",
+    "question": "What is your pricing?",
+    "answer": "Manday rates depend on project size and client's ongoing commitment. You can expect our services at $440 (€400) / manday levels. The more interesting, impactful and exploring your project is, the better the chance of reaching a win-win deal."
+  },
+  {
+    "key": "availability",
+    "question": "When are you available for development?",
+    "answer": "It never hurts to plan development in a reasonable advance (2-3 months) so we can accomodate capacity. That said, we are open to immediate issue handling at a higher price."
+  },
+  {
+    "key": "size",
+    "question": "Is invenus a big company capable of handling large projects?",
+    "answer": "Not at the moment. Right now, our success lies in the experience, not team size. A good fit is integrating us to existing teams, to fix weak points in existing developments."
+  },
+  {
+    "key": "technology",
+    "question": "Are you doing technology X, Y or Z?",
+    "answer": "Check out our <link to=\"#tech-stack\">Tech stack</link>, it is regularly updated as we master new technologies, frameworks, tools and approaches. But bear in mind sky is the limit - we are accustomed to learn on the go."
+  },
+  {
+    "key": "other-languages",
+    "question": "Can you do development in languages or systems outside of JavaScript?",
+    "answer": "This is not our primary purpose. Also you would lose the primary benefit from the cooperation, our long-term experience with JavaScript. Keeping that in mind, we are able to cover several PHP-based CMS, such as Wordpress or Drupal."
+  }
+]

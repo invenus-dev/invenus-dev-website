@@ -8,6 +8,9 @@ import { setUrlParameterValue, getParameterValue } from './utils/paramRouter';
 import './css/main.css';
 import ContactDetails from './components/ContactDetails';
 import ContactMain from './components/ContactMain';
+import Faqs from './components/Faqs';
+
+const FIXED_OFFSET = 80;
 
 // React DOM hydration
 // Cubicles
@@ -18,11 +21,15 @@ rootEls.map((rootEl) => {
   root.render(<Cubicle text={text} />);
 });
 
+const signalTechStackOpen = () => {
+  const event = new CustomEvent('tech-stack-open');
+  document.dispatchEvent(event);
+};
+
 // Tech Stack
 let techStackInitialized = false;
 const techStackContainerEl = document.getElementById('tech-stack-container');
 const techStackTriggerEl = document.getElementById('tech-stack-trigger');
-const techStackTriggerFromNav = document.getElementById('tech-stack-trigger-nav');
 const techStackEl = document.getElementById('tech-stack');
 const TECH_STACK_SCROLL_BACK_ON_CLOSE = 230;
 
@@ -76,15 +83,13 @@ if (techStackContainerEl && techStackTriggerEl && techStackEl) {
     openTechStack();
   });
 
-  if (techStackTriggerFromNav) {
-    techStackTriggerFromNav.addEventListener('click', (e) => {
-      e.preventDefault();
-      if (techStackContainerEl.classList.contains('hidden')) {
-        setUrlParameterValue('tech-stack', 'on');
-        openTechStack();
-      }
-    });
-  }
+  // externally triggered tech stack opens
+  document.addEventListener('tech-stack-open', () => {
+    if (techStackContainerEl.classList.contains('hidden')) {
+      setUrlParameterValue('tech-stack', 'on');
+      openTechStack();
+    }
+  });
 
   testTechStackFromUrl();
   window.onpopstate = () => {
@@ -96,7 +101,7 @@ if (techStackContainerEl && techStackTriggerEl && techStackEl) {
 const testimonialContainer = document.getElementById('testimonial-container');
 if (testimonialContainer) {
   const testimonialsFile = testimonialContainer.dataset?.testimonialsFile as string;
-  // init react TechStack component with SVR settings
+  // init react testimonials component with SVR settings
   createRoot(testimonialContainer).render(
     <WithSvr>
       <Testimonials testimonialsFile={testimonialsFile} />
@@ -136,38 +141,59 @@ if (contactDetailsContainer) {
   );
 }
 
+// Common scroll handler
+const scrollHandler = (targetId: string) => {
+  let targetTop = 0;
+
+  if (targetId && targetId !== '#') {
+    // specific case: tech-stack? if so, externally trigger open
+    if (targetId === '#tech-stack') {
+      signalTechStackOpen();
+    }
+    // find top of the element
+    const targetEl = document.querySelector(
+      `.js-scroll-target[data-target="${targetId}"]`
+    ) as HTMLElement;
+    if (targetEl) {
+      targetTop = targetEl.getBoundingClientRect().top + window.scrollY - FIXED_OFFSET;
+    }
+    // reduce by existing nav which is sticky
+    const navSticky = document.querySelector('nav.sticky-on') as HTMLElement;
+    if (navSticky) {
+      targetTop -= navSticky.getBoundingClientRect().height;
+    }
+  }
+
+  // perform scroll
+  window.scrollTo({
+    top: targetTop,
+    behavior: 'smooth',
+  });
+};
+// FAQs
+const faqsContainer = document.getElementById('faqs-container');
+if (faqsContainer) {
+  const faqsFile = faqsContainer.dataset?.faqsFile as string;
+  const faqLinkClicked = (link: string) => {
+    scrollHandler(link);
+  };
+  // init react faqs component with SVR settings
+  createRoot(faqsContainer).render(
+    <WithSvr>
+      <Faqs onLinkClicked={faqLinkClicked} faqsFile={faqsFile} />
+    </WithSvr>
+  );
+}
+
 // scroll handlers
 document.addEventListener('DOMContentLoaded', function () {
-  const FIXED_OFFSET = 80;
-
   // js-anchor listeners
   const scrollLinks = document.querySelectorAll('a.js-anchor');
   scrollLinks.forEach((scrollLink) => {
     scrollLink.addEventListener('click', (e) => {
       e.preventDefault();
       const targetId = scrollLink.getAttribute('href') as string;
-
-      let targetTop = 0;
-      if (targetId && targetId !== '#') {
-        // find top of the element
-        const targetEl = document.querySelector(
-          `.js-scroll-target[data-target="${targetId}"]`
-        ) as HTMLElement;
-        if (targetEl) {
-          targetTop = targetEl.getBoundingClientRect().top + window.pageYOffset - FIXED_OFFSET;
-        }
-        // reduce by existing nav which is sticky
-        const navSticky = document.querySelector('nav.sticky-on') as HTMLElement;
-        if (navSticky) {
-          targetTop -= navSticky.getBoundingClientRect().height;
-        }
-      }
-
-      // perform scroll
-      window.scrollTo({
-        top: targetTop,
-        behavior: 'smooth',
-      });
+      scrollHandler(targetId);
     });
   });
 
