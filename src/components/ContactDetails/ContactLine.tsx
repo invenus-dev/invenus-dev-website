@@ -1,5 +1,7 @@
 import classNames from 'classnames';
 import { useState } from 'react';
+import { Transition } from '@headlessui/react';
+
 type Props = {
   label: string;
   value: string;
@@ -40,18 +42,22 @@ const ContactLine = ({ label, value, isVertical = false, isYellow = false }: Pro
         onClick={handleInteraction}
         onKeyUp={handleInteraction}
         className={classNames(
-          'group relative flex cursor-pointer space-x-2 rounded-md px-4 py-2',
+          'group relative flex cursor-pointer gap-x-2 rounded-md px-4 py-2',
           isYellow ? 'bg-secondary' : 'bg-gray-100'
         )}
       >
-        <div
-          className={classNames(
-            'absolute bottom-full mb-2 transform rounded bg-gray-700 px-2 py-1 text-sm text-white',
-            isCopied ? 'animate-in' : 'hidden'
-          )}
+        <Transition
+          show={isCopied}
+          className="absolute bottom-full mb-2 rounded bg-gray-700 px-2 py-1 text-sm text-white"
+          enter="transition-all ease-in-out duration-300"
+          enterFrom="opacity-0 scale-0"
+          enterTo="opacity-100 scale-100"
+          leave="transition-all ease-in-out duration-300"
+          leaveFrom="opacity-100 scale-100"
+          leaveTo="opacity-0 scale-0"
         >
           Copied to clipboard!
-        </div>
+        </Transition>
         <div
           className="whitespace-nowrap text-sm xs:text-base"
           dangerouslySetInnerHTML={{ __html: parsedValue }}
