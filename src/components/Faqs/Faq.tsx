@@ -1,9 +1,10 @@
 import { FaqsEntry } from '../Faqs';
-import { useState } from 'react';
-import classNames from 'classnames';
+import { Transition } from '@headlessui/react';
 
 type Props = {
   faq: FaqsEntry;
+  isOpen: boolean;
+  onChangeState: (isOpen: boolean) => void;
   onLinkClicked: (link: string) => void;
 };
 
@@ -17,12 +18,11 @@ const getTreatedContent = (answer: string): string | string[] => {
   }
 };
 
-const Faq = ({ faq, onLinkClicked }: Props) => {
+const Faq = ({ faq, isOpen, onChangeState, onLinkClicked }: Props) => {
   const answer = getTreatedContent(faq.answer);
-  const [isOpen, setIsOpen] = useState(false);
   const handleQuestionClicked = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     e.preventDefault();
-    setIsOpen(!isOpen);
+    onChangeState(!isOpen);
   };
 
   return (
@@ -48,31 +48,37 @@ const Faq = ({ faq, onLinkClicked }: Props) => {
         </svg>
         <span>{faq.question}</span>
       </a>
-      <div
-        className={classNames('px-4 pb-6 pt-2', {
-          hidden: !isOpen,
-          block: isOpen,
-        })}
+      <Transition
+        className="overflow-hidden"
+        show={isOpen}
+        enter="transition-all ease-in-out sm:duration-300"
+        enterFrom="transform sm:max-h-0"
+        enterTo="transform sm:max-h-40 max-h-fit"
+        leave="transition-all ease-in-out sm:duration-300"
+        leaveFrom="transform sm:max-h-40 max-h-fit"
+        leaveTo="transform sm:max-h-0"
       >
-        {Array.isArray(answer) ? (
-          <>
-            {answer[0]}
-            <a
-              href={answer[1]}
-              onClick={(e) => {
-                e.preventDefault();
-                onLinkClicked(answer[1]);
-              }}
-              className="font-semibold text-primary-light underline"
-            >
-              {answer[2]}
-            </a>
-            {answer[3]}
-          </>
-        ) : (
-          <>{answer}</>
-        )}
-      </div>
+        <div className="pb-6 pl-8 pr-4 pt-2">
+          {Array.isArray(answer) ? (
+            <>
+              {answer[0]}
+              <a
+                href={answer[1]}
+                onClick={(e) => {
+                  e.preventDefault();
+                  onLinkClicked(answer[1]);
+                }}
+                className="font-semibold text-primary-light underline"
+              >
+                {answer[2]}
+              </a>
+              {answer[3]}
+            </>
+          ) : (
+            <>{answer}</>
+          )}
+        </div>
+      </Transition>
     </div>
   );
 };
