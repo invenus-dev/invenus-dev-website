@@ -31,7 +31,7 @@ const ContactLine = ({ label, value, isVertical = false, isYellow = false }: Pro
     >
       <div
         className={classNames(
-          'mr-4 text-sm xs:text-base',
+          'mr-4 whitespace-nowrap text-sm xs:text-base',
           isYellow ? 'text-secondary-darker' : 'text-gray-500'
         )}
       >
