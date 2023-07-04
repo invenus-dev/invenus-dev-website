@@ -210,5 +210,35 @@ document.addEventListener('DOMContentLoaded', function () {
         header.classList.remove('sticky-on');
       }
     }
+
+    const navSticky = document.querySelector('nav.sticky-on') as HTMLElement;
+    let offset = FIXED_OFFSET + 4;
+    if (navSticky) {
+      offset += navSticky.getBoundingClientRect().height;
+    }
+
+    // highlight menu item
+    const navItems = document.querySelectorAll('nav a.nav-link');
+    navItems.forEach((navItem) => {
+      const targetAnchor = navItem.getAttribute('href') as string;
+      const targetId = targetAnchor.split('#')[1];
+
+      const startDiv = document.querySelector(`div[data-anchor-start="${targetId}"]`);
+      const endDiv = document.querySelector(`div[data-anchor-end="${targetId}"]`);
+
+      if (!startDiv || !endDiv) {
+        return;
+      }
+      // reduce by existing nav which is sticky
+
+      const startDivOffset = startDiv.getBoundingClientRect().top + window.scrollY - offset;
+      const endDivOffset = endDiv.getBoundingClientRect().top + window.scrollY - offset;
+
+      if (window.scrollY >= startDivOffset && window.scrollY < endDivOffset) {
+        navItem.classList.add('active');
+      } else {
+        navItem.classList.remove('active');
+      }
+    });
   });
 });

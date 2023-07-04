@@ -18,7 +18,7 @@
 }
 
 .sticky-on .nav-link.active {
-  @apply bg-primary-light;
+  @apply bg-primary-light transition duration-300 ease-in;
 }
 
 .mainbody .headnote {
