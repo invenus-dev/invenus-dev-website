@@ -6,6 +6,11 @@ import ContactForm from './components/ContactForm';
 import WithSvr from './components/WithSvr';
 import { setUrlParameterValue, getParameterValue } from './utils/paramRouter';
 import './css/main.css';
+import ContactDetails from './components/ContactDetails';
+import ContactMain from './components/ContactMain';
+import Faqs from './components/Faqs';
+
+const FIXED_OFFSET = 80;
 
 // React DOM hydration
 // Cubicles
@@ -16,11 +21,17 @@ rootEls.map((rootEl) => {
   root.render(<Cubicle text={text} />);
 });
 
+const signalTechStackOpen = () => {
+  const event = new CustomEvent('tech-stack-open');
+  document.dispatchEvent(event);
+};
+
 // Tech Stack
 let techStackInitialized = false;
 const techStackContainerEl = document.getElementById('tech-stack-container');
 const techStackTriggerEl = document.getElementById('tech-stack-trigger');
 const techStackEl = document.getElementById('tech-stack');
+const TECH_STACK_SCROLL_BACK_ON_CLOSE = 230;
 
 // when tech stack containers are detected
 if (techStackContainerEl && techStackTriggerEl && techStackEl) {
@@ -40,6 +51,10 @@ if (techStackContainerEl && techStackTriggerEl && techStackEl) {
             stackFile={stackFile}
             onClose={() => {
               setUrlParameterValue('tech-stack', null);
+              window.scrollTo({
+                top: window.scrollY - TECH_STACK_SCROLL_BACK_ON_CLOSE,
+                behavior: 'smooth',
+              });
               closeTechStack();
             }}
           />
@@ -68,43 +83,25 @@ if (techStackContainerEl && techStackTriggerEl && techStackEl) {
     openTechStack();
   });
 
+  // externally triggered tech stack opens
+  document.addEventListener('tech-stack-open', () => {
+    if (techStackContainerEl.classList.contains('hidden')) {
+      setUrlParameterValue('tech-stack', 'on');
+      openTechStack();
+    }
+  });
+
   testTechStackFromUrl();
   window.onpopstate = () => {
     testTechStackFromUrl();
   };
 }
 
-// Sticky enable - intersection reaction when hero is off
-document.addEventListener('DOMContentLoaded', function () {
-  const header = document.querySelector('.sticky-header');
-  const triggerElement = document.getElementById('sticky-trigger');
-
-  if (header && triggerElement) {
-    // hook intersection observer to drive sticky header display
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            header.classList.remove('sticky-on');
-          } else {
-            header.classList.add('sticky-on');
-          }
-        });
-      },
-      {
-        root: null,
-        threshold: 0,
-      }
-    );
-    observer.observe(triggerElement);
-  }
-});
-
 // Testimonials
 const testimonialContainer = document.getElementById('testimonial-container');
 if (testimonialContainer) {
   const testimonialsFile = testimonialContainer.dataset?.testimonialsFile as string;
-  // init react TechStack component with SVR settings
+  // init react testimonials component with SVR settings
   createRoot(testimonialContainer).render(
     <WithSvr>
       <Testimonials testimonialsFile={testimonialsFile} />
@@ -117,3 +114,131 @@ const contactFormContainer = document.getElementById('contact-form-container');
 if (contactFormContainer) {
   createRoot(contactFormContainer).render(<ContactForm />);
 }
+
+// Contact containers
+const getContactValues = (contactContainer: HTMLElement) => {
+  const spanElements = contactContainer.querySelectorAll('span');
+  const contactObject: Record<string, string> = {};
+  spanElements.forEach((spanElement) => {
+    const key = spanElement.dataset?.key as string;
+    const value = spanElement.innerText as string;
+    contactObject[key] = value;
+  });
+  return contactObject;
+};
+
+const contactMainContainer = document.getElementById('contact-main-container');
+if (contactMainContainer) {
+  createRoot(contactMainContainer).render(
+    <ContactMain data={getContactValues(contactMainContainer)} />
+  );
+}
+
+const contactDetailsContainer = document.getElementById('contact-details-container');
+if (contactDetailsContainer) {
+  createRoot(contactDetailsContainer).render(
+    <ContactDetails data={getContactValues(contactDetailsContainer)} />
+  );
+}
+
+// Common scroll handler
+const scrollHandler = (targetId: string) => {
+  let targetTop = 0;
+
+  if (targetId && targetId !== '#') {
+    // specific case: tech-stack? if so, externally trigger open
+    if (targetId === '#tech-stack') {
+      signalTechStackOpen();
+    }
+    // find top of the element
+    const targetEl = document.querySelector(
+      `.js-scroll-target[data-target="${targetId}"]`
+    ) as HTMLElement;
+    if (targetEl) {
+      targetTop = targetEl.getBoundingClientRect().top + window.scrollY - FIXED_OFFSET;
+    }
+    // reduce by existing nav which is sticky
+    const navSticky = document.querySelector('nav.sticky-on') as HTMLElement;
+    if (navSticky) {
+      targetTop -= navSticky.getBoundingClientRect().height;
+    }
+  }
+
+  // perform scroll
+  window.scrollTo({
+    top: targetTop,
+    behavior: 'smooth',
+  });
+};
+// FAQs
+const faqsContainer = document.getElementById('faqs-container');
+if (faqsContainer) {
+  const faqsFile = faqsContainer.dataset?.faqsFile as string;
+  const faqLinkClicked = (link: string) => {
+    scrollHandler(link);
+  };
+  // init react faqs component with SVR settings
+  createRoot(faqsContainer).render(
+    <WithSvr>
+      <Faqs onLinkClicked={faqLinkClicked} faqsFile={faqsFile} />
+    </WithSvr>
+  );
+}
+
+// scroll handlers
+document.addEventListener('DOMContentLoaded', function () {
+  // js-anchor listeners
+  const scrollLinks = document.querySelectorAll('a.js-anchor');
+  scrollLinks.forEach((scrollLink) => {
+    scrollLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetId = scrollLink.getAttribute('href') as string;
+      scrollHandler(targetId);
+    });
+  });
+
+  // scroll event handler - controls sticky menu and highlights
+  const header = document.querySelector('nav');
+  const triggerElement = document.getElementById('sticky-trigger');
+
+  window.addEventListener('scroll', () => {
+    if (header && triggerElement) {
+      const triggerTop = triggerElement.getBoundingClientRect().top;
+      if (window.scrollY > triggerTop + FIXED_OFFSET) {
+        header.classList.add('sticky-on');
+      } else {
+        header.classList.remove('sticky-on');
+      }
+    }
+
+    const navSticky = document.querySelector('nav.sticky-on') as HTMLElement;
+    let offset = FIXED_OFFSET + 4;
+    if (navSticky) {
+      offset += navSticky.getBoundingClientRect().height;
+    }
+
+    // highlight menu item
+    const navItems = document.querySelectorAll('nav a.nav-link');
+    navItems.forEach((navItem) => {
+      const targetAnchor = navItem.getAttribute('href') as string;
+      const targetId = targetAnchor.split('#')[1];
+
+      const startDiv = document.querySelector(`div[data-anchor-start="${targetId}"]`);
+      const endDiv = document.querySelector(`div[data-anchor-end="${targetId}"]`);
+
+      if (!startDiv || !endDiv) {
+        return;
+      }
+      // reduce by existing nav which is sticky
+
+      const startDivOffset = startDiv.getBoundingClientRect().top + window.scrollY - offset;
+      const endDivOffset = endDiv.getBoundingClientRect().top + window.scrollY - offset;
+
+      if (window.scrollY >= startDivOffset && window.scrollY < endDivOffset) {
+        navItem.classList.add('active');
+      } else {
+        navItem.classList.remove('active');
+      }
+    });
+  });
+});
