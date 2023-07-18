@@ -1,4 +1,5 @@
 import ContactLine from './ContactDetails/ContactLine';
+import JanFoto from '../assets/jan-foto.jpg';
 
 const LABELS = {
   phone: 'Phone',
@@ -25,7 +26,7 @@ const ContactMain = ({ data }: Props) => {
         </div>
         <div className="mb-8 sm:mb-0">
           <img
-            src="/src/assets/jan-foto.jpg"
+            src={JanFoto}
             alt="Jan"
             className="h-auto max-w-[12rem] border-4 border-secondary-light lg:-mb-12 lg:-mt-12 lg:rounded-full"
           />
