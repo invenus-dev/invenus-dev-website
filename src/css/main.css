@@ -82,7 +82,7 @@
 }
 
 .mainbody p.large {
-  @apply text-xl xms:text-2xl;
+  @apply mb-4 text-xl xms:text-2xl;
 }
 
 .mainbody p.small {
