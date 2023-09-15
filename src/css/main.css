@@ -6,7 +6,31 @@
 }
 
 .nav-link {
-  @apply inline-block rounded-full px-3 py-1 tracking-wide hover:bg-primary-light;
+  @apply inline-block rounded-full px-3 py-1 text-base tracking-wide hover:bg-primary-light;
+}
+
+.nav-dropdown {
+  @apply hidden px-8 py-10 lg:block lg:px-0 lg:py-0;
+}
+
+.nav-dropdown.active {
+  @apply block border-b-4 border-primary-dark;
+}
+
+.sticky-on .nav-dropdown.active {
+  @apply border-none;
+}
+
+.nav-normal {
+  @apply block py-0;
+}
+
+.nav-dropdown.active .nav-link {
+  @apply mb-4 block px-4 text-lg lg:mb-0 lg:inline-block lg:px-3;
+}
+
+.nav-link.contact-hide {
+  @apply xms:hidden;
 }
 
 .sticky-on {
@@ -27,6 +51,10 @@
 
 .mainbody-light {
   @apply text-tertiary;
+}
+
+.mainbody h1 {
+  @apply mb-3 mt-4 font-heading text-5xl font-normal lg:text-6xl;
 }
 
 .mainbody h2 {
@@ -70,10 +98,10 @@
 }
 
 .btn {
-  @apply inline-flex items-center rounded-lg bg-gray-400 px-6 py-3 text-xl font-bold text-white shadow-lg 
-  outline-none ring-opacity-40 ring-offset-2
+  @apply inline-flex items-center rounded-lg bg-gray-400 px-6 py-3 text-xl font-bold text-white shadow-lg   
   hover:translate-x-px hover:translate-y-px 
-  focus:ring-2;
+  focus:outline-none
+  focus:ring;
 }
 
 .btn-nav {
@@ -84,10 +112,22 @@
   @apply ml-2 h-auto w-8;
 }
 
+.btn-blue {
+  @apply bg-primary-light text-tertiary
+  ring-secondary-light
+  hover:bg-primary-dark;
+}
+
+.btn-yellow {
+  @apply bg-secondary text-primary
+  ring-primary-light hover:bg-secondary-dark;
+}
+
 .btn-primary {
   @apply bg-secondary text-2xl
   text-primary-dark
-  ring-primary-light hover:bg-secondary-dark
+  ring-primary-light
+  hover:bg-secondary-dark
   hover:text-primary-dark;
 }
 
@@ -165,6 +205,52 @@
 
 .animate-in {
   @apply block animate-fade animate-duration-200 animate-once animate-ease-in;
+}
+
+/* https://tailwindcomponents.com/component/animated-hamburger-menu-icon */
+.hamburger {
+  @apply relative outline-none;
+}
+.hamburger div.seg0 {
+  @apply relative flex h-[50px] w-[50px] transform items-center justify-center overflow-hidden rounded-full bg-primary-dark shadow-md ring-0 ring-secondary-light ring-opacity-30 transition-all duration-200;
+}
+.hamburger div.seg1 {
+  @apply flex h-[20px] w-[20px] origin-center transform flex-col justify-between overflow-hidden transition-all duration-300;
+}
+.hamburger div.seg2 {
+  @apply h-[2px] w-7 origin-left transform bg-white transition-all duration-300;
+}
+.hamburger div.seg3 {
+  @apply h-[2px] w-7 transform rounded bg-white transition-all delay-75 duration-300;
+}
+.hamburger div.seg4 {
+  @apply h-[2px] w-7 origin-left transform bg-white transition-all delay-150 duration-300;
+}
+.hamburger div.seg5 {
+  @apply absolute top-2.5 flex w-0 -translate-x-10 transform items-center justify-between transition-all duration-500;
+}
+.hamburger div.seg6 {
+  @apply absolute h-[2px] w-5 rotate-0 transform bg-white transition-all delay-300 duration-500;
+}
+.hamburger div.seg7 {
+  @apply absolute h-[2px] w-5 -rotate-0 transform bg-white transition-all delay-300 duration-500;
+}
+.hamburger.activated div.seg0 {
+  @apply ring-4;
+}
+.hamburger.activated div.seg2,
+.hamburger.activated div.seg3,
+.hamburger.activated div.seg4 {
+  @apply translate-x-10;
+}
+.hamburger.activated div.seg5 {
+  @apply w-12 translate-x-0;
+}
+.hamburger.activated div.seg6 {
+  @apply rotate-45;
+}
+.hamburger.activated div.seg7 {
+  @apply -rotate-45;
 }
 
 @tailwind utilities;

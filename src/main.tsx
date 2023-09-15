@@ -185,6 +185,14 @@ if (faqsContainer) {
   );
 }
 
+// nav button
+const navButton = document.querySelector('button.navToggle');
+navButton?.addEventListener('click', () => {
+  navButton.classList.toggle('activated');
+  const nav = document.querySelector('.nav-dropdown');
+  nav?.classList.toggle('active');
+});
+
 // scroll handlers
 document.addEventListener('DOMContentLoaded', function () {
   // js-anchor listeners

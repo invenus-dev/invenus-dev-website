@@ -17,7 +17,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@500&family=Teko:wght@600&family=Yantramanav:wght@300;400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@500&family=Teko:wght@400&family=Yantramanav:wght@300;400;700&display=swap"
       rel="stylesheet"
     />
     <script src="https://www.google.com/recaptcha/api.js?render=%VITE_RECAPTCHA_SITE_KEY%"></script>
@@ -25,56 +25,77 @@
   </head>
   <body>
     <nav class="sticky-header bg-primary px-4 py-2 text-tertiary">
-      <div class="flex items-center justify-between space-x-8 px-2 lg:container lg:mx-auto lg:px-0">
-        <div class="flex items-center space-x-6 lg:space-x-6">
-          <a href="#" class="small-logo js-anchor hidden">
+      <div
+        class="container mx-auto px-8 lg:mx-auto lg:flex lg:items-center lg:justify-between lg:px-6"
+      >
+        <div class="flex items-center justify-between space-x-8">
+          <a href="#" class="small-logo js-anchor">
             <img
               class="block w-8"
               src="/src/assets/icons/invenus-logo-symbol.svg"
               alt="invenus logo symbol"
             />
           </a>
+          <div class="flex space-x-8 lg:hidden">
+            <a href="#contacts" class="btn btn-nav js-anchor hidden xms:inline-flex">Contacts</a>
+            <button class="hamburger navToggle block lg:hidden">
+              <div class="seg0">
+                <div class="seg1">
+                  <div class="seg2"></div>
+                  <div class="seg3"></div>
+                  <div class="seg4"></div>
+                  <div class="seg5">
+                    <div class="seg6"></div>
+                    <div class="seg7"></div>
+                  </div>
+                </div>
+              </div>
+            </button>
+          </div>
+        </div>
+        <div class="nav-dropdown">
           <a href="#about" class="nav-link js-anchor">About</a>
           <a href="#tech-stack" class="nav-link js-anchor">Tech stack</a>
           <a href="#benefits" class="nav-link js-anchor">Benefits</a>
           <a href="#testimonials" class="nav-link js-anchor">Testimonials</a>
           <a href="#our-story" class="nav-link js-anchor">Our Story</a>
-          <a href="#contact" class="nav-link js-anchor">Contact</a>
           <a href="#faqs" class="nav-link js-anchor">FAQs</a>
+          <a href="#contacts" class="nav-link js-anchor contact-hide">Contacts</a>
         </div>
-        <div>
-          <a href="#contact" class="btn btn-nav js-anchor">Contact us</a>
-        </div>
+        <a href="#contacts" class="btn btn-nav js-anchor hidden lg:inline-flex">Contacts</a>
       </div>
     </nav>
     <main class="bg-primary px-4 pb-20 pt-8">
       <div
-        class="container mx-auto flex flex-col space-x-0 space-y-12 md:flex-row md:space-x-8 md:space-y-0"
+        class="container mx-auto flex min-h-[75vh] flex-col space-x-0 px-8 lg:flex-row lg:space-x-8 lg:px-6"
       >
-        <div
-          class="flex flex-col items-center justify-center text-tertiary xs:text-lg md:w-1/2 md:text-xl xl:text-2xl"
-        >
-          <h1 class="hidden">invenus &ndash; your idea, our code</h1>
-          <img src="/src/assets/logo_safe_512x249.png" alt="invenus logo" />
-          <code class="inline-block"
-            >{ your: <span class="text-secondary">"idea"</span>, our:
-            <span class="text-secondary">code()</span> }</code
-          >
+        <div class="flex items-center py-12 lg:w-1/2 lg:py-0">
+          <div class="mainbody text-tertiary xs:text-lg md:text-xl lg:max-w-md xl:text-2xl">
+            <img src="/src/assets/logo_cutoff_358x117.png" alt="invenus logo" />
+            <h1>Experienced software house <span class="text-secondary">for the future</span></h1>
+            <div class="mt-8 flex space-x-4">
+              <a class="btn btn-yellow js-anchor" href="#about">More info</a>
+              <a class="btn btn-blue js-anchor" href="#tech-stack">Tech stack</a>
+            </div>
+            <div class="mt-6 flex items-center space-x-4">
+              <div class="h-6 w-6 rounded-full bg-green-400"></div>
+              <div class="text-lg font-bold uppercase">
+                Currently <span class="text-green-400">available</span> capacity
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="flex justify-center md:w-1/2">
-          <img src="/src/assets/developer_transparent.png" />
+        <div class="flex lg:w-1/2 lg:justify-center">
+          <img
+            class="h-auto object-contain lg:max-w-lg"
+            src="/src/assets/developer_transparent.png"
+          />
         </div>
       </div>
     </main>
     <div data-anchor-start="about"></div>
     <section class="py-32 md:container md:mx-auto">
       <div id="sticky-trigger" data-target="#about" class="js-scroll-target flex">
-        <div class="hidden w-1/3 items-center justify-center text-lg lg:flex">
-          <div
-            class="cubicle"
-            data-text="/* We have been in web development since 2007. Not much can surprise us today. */"
-          ></div>
-        </div>
         <div class="mainbody px-8 lg:w-2/3 lg:px-0 lg:pr-4">
           <span class="headnote">introduction</span>
           <h2>What is invenus</h2>
@@ -249,7 +270,7 @@
           </div>
           <div class="mainbody text-tertiary xms:ml-8 lg:ml-0">
             <p class="large">Connect with Jan to <strong>get your ideas live</strong>!</p>
-            <a href="#contact" class="btn btn-primary js-anchor">Get in touch</a>
+            <a href="#contacts" class="btn btn-primary js-anchor">Get in touch</a>
           </div>
         </div>
       </div>
@@ -276,10 +297,11 @@
       <div class="px-8 md:container md:mx-auto lg:px-6">
         <div class="flex">
           <div class="hidden w-1/3 items-center justify-center text-lg lg:flex">
-            <div
-              class="cubicle"
-              data-text="/* tl;dr: invenus kicked off in 2023 and is built on significant experience. */"
-            ></div>
+            <img src="/src/assets/logo_safe_512x249.png" alt="invenus logo" />
+            <code class="inline-block"
+              >{ your: <span class="text-secondary">"idea"</span>, our:
+              <span class="text-secondary">code()</span> }</code
+            >
           </div>
           <div class="mainbody w-full lg:w-2/3 lg:px-0 lg:pr-4">
             <span class="headnote">Jan's story</span>
@@ -336,7 +358,7 @@
     <div data-anchor-start="contact"></div>
     <section class="py-32">
       <div
-        data-target="#contact"
+        data-target="#contacts"
         class="js-scroll-target mainbody mb-12 lg:container lg:mx-auto lg:px-8"
       >
         <div class="mb-4">
@@ -428,7 +450,7 @@
           </h2>
           <p class="text-xl leading-relaxed text-tertiary-grade2">
             Hope you liked our introduction.<br />Feel free to
-            <a href="#contact" class="js-anchor text-secondary underline underline-offset-4"
+            <a href="#contacts" class="js-anchor text-secondary underline underline-offset-4"
               >contact us</a
             >
             with your idea!
