@@ -74,7 +74,7 @@
 }
 
 .mainbody p {
-  @apply mb-3 max-w-3xl text-lg;
+  @apply mb-6 max-w-3xl text-lg;
 }
 
 .mainbody p:last-of-type {
