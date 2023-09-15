@@ -8,22 +8,24 @@ type Props = {
 
 const StackNavigation = ({ stacks, currentStackHash, onSelect }: Props) => {
   return (
-    <ul className="flex flex-wrap justify-start gap-x-4 gap-y-3">
-      {stacks.map(({ hash, title }) => (
-        <li key={hash} className="">
-          <a
-            className={currentStackHash === hash ? 'tech-nav active' : 'tech-nav'}
-            href={`#${hash}`}
-            onClick={(e) => {
-              e.preventDefault();
-              onSelect(hash);
-            }}
-          >
-            {title}
-          </a>
-        </li>
-      ))}
-    </ul>
+    <div className="mb-6 flex justify-center">
+      <ul className="flex flex-wrap justify-center gap-x-2 gap-y-3 rounded-2xl px-2 py-2 lg:bg-primary-dark">
+        {stacks.map(({ hash, title }) => (
+          <li key={hash} className="">
+            <a
+              className={currentStackHash === hash ? 'tech-nav active' : 'tech-nav'}
+              href={`#${hash}`}
+              onClick={(e) => {
+                e.preventDefault();
+                onSelect(hash);
+              }}
+            >
+              {title}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 };
 

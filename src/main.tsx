@@ -4,7 +4,6 @@ import TechStack from './components/TechStack';
 import Testimonials from './components/Testimonials';
 import ContactForm from './components/ContactForm';
 import WithSvr from './components/WithSvr';
-import { setUrlParameterValue, getParameterValue } from './utils/paramRouter';
 import './css/main.css';
 import ContactDetails from './components/ContactDetails';
 import ContactMain from './components/ContactMain';
@@ -21,80 +20,17 @@ rootEls.map((rootEl) => {
   root.render(<Cubicle text={text} />);
 });
 
-const signalTechStackOpen = () => {
-  const event = new CustomEvent('tech-stack-open');
-  document.dispatchEvent(event);
-};
-
 // Tech Stack
-let techStackInitialized = false;
-const techStackContainerEl = document.getElementById('tech-stack-container');
-const techStackTriggerEl = document.getElementById('tech-stack-trigger');
 const techStackEl = document.getElementById('tech-stack');
-const TECH_STACK_SCROLL_BACK_ON_CLOSE = 230;
 
-// when tech stack containers are detected
-if (techStackContainerEl && techStackTriggerEl && techStackEl) {
-  const openTechStack = () => {
-    techStackTriggerEl.classList.add('hidden');
-    techStackContainerEl.classList.remove('hidden');
-
-    // init react TechStack component
-    if (!techStackInitialized) {
-      techStackInitialized = true;
-      const stackFile = techStackEl.dataset?.stackFile as string;
-
-      // init react TechStack component with SVR settings
-      createRoot(techStackEl).render(
-        <WithSvr>
-          <TechStack
-            stackFile={stackFile}
-            onClose={() => {
-              setUrlParameterValue('tech-stack', null);
-              window.scrollTo({
-                top: window.scrollY - TECH_STACK_SCROLL_BACK_ON_CLOSE,
-                behavior: 'smooth',
-              });
-              closeTechStack();
-            }}
-          />
-        </WithSvr>
-      );
-    }
-  };
-
-  const closeTechStack = () => {
-    techStackTriggerEl.classList.remove('hidden');
-    techStackContainerEl.classList.add('hidden');
-  };
-
-  const testTechStackFromUrl = () => {
-    const techStackParam = getParameterValue('tech-stack', null);
-    if (techStackParam === 'on') {
-      openTechStack();
-    } else {
-      closeTechStack();
-    }
-  };
-
-  techStackTriggerEl.addEventListener('click', (e) => {
-    e.preventDefault();
-    setUrlParameterValue('tech-stack', 'on');
-    openTechStack();
-  });
-
-  // externally triggered tech stack opens
-  document.addEventListener('tech-stack-open', () => {
-    if (techStackContainerEl.classList.contains('hidden')) {
-      setUrlParameterValue('tech-stack', 'on');
-      openTechStack();
-    }
-  });
-
-  testTechStackFromUrl();
-  window.onpopstate = () => {
-    testTechStackFromUrl();
-  };
+if (techStackEl) {
+  // init react TechStack component with SVR settings
+  const stackFile = techStackEl.dataset?.stackFile as string;
+  createRoot(techStackEl).render(
+    <WithSvr>
+      <TechStack stackFile={stackFile} />
+    </WithSvr>
+  );
 }
 
 // Testimonials
@@ -146,10 +82,6 @@ const scrollHandler = (targetId: string) => {
   let targetTop = 0;
 
   if (targetId && targetId !== '#') {
-    // specific case: tech-stack? if so, externally trigger open
-    if (targetId === '#tech-stack') {
-      signalTechStackOpen();
-    }
     // find top of the element
     const targetEl = document.querySelector(
       `.js-scroll-target[data-target="${targetId}"]`

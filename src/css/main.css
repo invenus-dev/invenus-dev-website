@@ -165,7 +165,7 @@
 }
 
 .tech-nav {
-  @apply inline-block rounded-full bg-primary-light px-6 py-2 font-semibold tracking-wide text-tertiary hover:text-secondary;
+  @apply inline-block rounded-xl bg-primary-light px-6 py-2 font-semibold tracking-wide text-tertiary hover:text-secondary;
 }
 
 .tech-nav.active {
