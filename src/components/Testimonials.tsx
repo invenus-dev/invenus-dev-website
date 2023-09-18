@@ -3,10 +3,14 @@ import Testimonial from './Testimonial/Testimonial';
 
 export type TestimonialEntry = {
   id: string;
+  stars: number;
   client: string;
   name: string;
   role: string;
   body: string;
+  photo: string;
+  logo: string;
+  url?: string;
 };
 
 type Props = {
@@ -24,7 +28,7 @@ const Testimonials = ({ testimonialsFile }: Props) => {
         </div>
       )}
       {data && (
-        <div className="md:grid md:grid-cols-2 md:gap-4 xl:grid-cols-3">
+        <div className="xl:grid xl:grid-cols-3 xl:gap-6">
           {data.map((testimonial) => (
             <Testimonial testimonial={testimonial} key={testimonial.id} />
           ))}

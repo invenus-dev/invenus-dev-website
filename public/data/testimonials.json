@@ -1,23 +1,35 @@
 [
   {
     "id": "rubberducky",
+    "stars": 5,
     "client": "Rubber Ducky Interactive",
     "name": "David Jina",
     "role": "CEO & founder",
-    "body": "We recently collaborated with invenus and their developer Jan to create a payment handling microservice, which exceeded our expectations. Our integration partner praised it as the fastest and easiest approval in 2022. Jan demonstrated exceptional expertise, effective communication, and adaptability throughout the project. We highly recommend invenus for your development needs."
+    "photo": "david-jina",
+    "logo": "rubber-ducky-logo",
+    "body": "We recently collaborated with invenus and their developer Jan to create a payment handling microservice, which exceeded our expectations. Our integration partner praised it as the fastest and easiest approval in 2022. Jan demonstrated exceptional expertise, effective communication, and adaptability throughout the project. We highly recommend invenus for your development needs.",
+    "url": "https://rubberduckyinteractive.com/"
   },
   {
     "id": "truano",
+    "stars": 5,
     "client": "Truano.com",
     "name": "Marcel Láža",
     "role": "Product owner",
-    "body": "We have continuously collaborated with invenus/Jan to improve and advance our tutoring services marketplace (Truano). Jan's deep knowledge of programming languages and experience exceeded our expectations. Throughout the project, Jan demonstrated exceptional expertise, effective communication, critical thinking, and adaptability, which were instrumental in changing critical points in our product and in launching new features. We recommend invenus for any development services and long-time cooperation."
+    "photo": "marcel-laza",
+    "logo": "truano-logo",
+    "body": "We have continuously collaborated with invenus/Jan to improve and advance our tutoring services marketplace (Truano). Jan's deep knowledge of programming languages and experience exceeded our expectations. Throughout the project, Jan demonstrated exceptional expertise, effective communication, critical thinking, and adaptability, which were instrumental in changing critical points in our product and in launching new features. We recommend invenus for any development services and long-time cooperation.",
+    "url": "https://truano.com"
   },
   {
     "id": "elegant",
+    "stars": 5,
     "client": "Elegant Digital",
     "name": "Simon Fuller",
     "role": "CEO & founder",
-    "body": "What impresses me the most about the team at Invenus is their ability to adapt and understand client goals and requirements. They provide regular updates on project progress, keeping me informed every step of the way. This transparent and proactive approach has helped build a trusting relationship and increases client confidence. Over the years, our partnership has evolved into a strong and successful collaboration that has brought numerous mutual benefits."
+    "photo": "simon-fuller",
+    "logo": "elegant-digital-logo",
+    "body": "What impresses me the most about the team at Invenus is their ability to adapt and understand client goals and requirements. They provide regular updates on project progress, keeping me informed every step of the way. This transparent and proactive approach has helped build a trusting relationship and increases client confidence. Over the years, our partnership has evolved into a strong and successful collaboration that has brought numerous mutual benefits.",
+    "url": "https://www.elegantdigital.co.uk/"
   }
 ]
