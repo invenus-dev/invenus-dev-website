@@ -314,7 +314,7 @@
     </section>
     <div data-anchor-end="our-story"></div>
     <div data-anchor-start="faqs"></div>
-    <section class="pt-24">
+    <section class="pb-16 pt-24">
       <div data-target="#faqs" class="mainbody js-scroll-target container mx-auto mb-12 px-8">
         <span class="headnote">Still not convinced?</span>
         <h2>Let's answer most common questions</h2>
@@ -327,38 +327,18 @@
     </section>
     <div data-anchor-end="faqs"></div>
     <div data-anchor-start="contact"></div>
-    <section class="py-32">
-      <div
-        data-target="#contacts"
-        class="js-scroll-target mainbody mb-12 lg:container lg:mx-auto lg:px-8"
-      >
+    <section class="bg-secondary-light pt-16 sm:pb-16">
+      <div data-target="#contacts" class="js-scroll-target mainbody mb-4 lg:px-8">
         <div class="mb-4">
-          <div class="px-4 sm:px-12 lg:px-0">
+          <div class="flex flex-col items-center px-4 sm:px-12 lg:px-0">
+            <img
+              src="/src/assets/jan-foto.jpg"
+              alt="Jan"
+              class="mb-4 h-auto max-w-[13.333rem] border-4 border-primary shadow-md lg:rounded-[4rem]"
+            />
             <span class="headnote">Interested in cooperation?</span>
             <h2>Contact Jan with your idea</h2>
-          </div>
-          <div id="contact-main-container">
-            <span data-key="name">Jan Malý</span>
-            <span data-key="email">jan@invenus.dev</span>
-            <span data-key="phone">+420 722 211 443</span>
-          </div>
-        </div>
-        <div
-          class="flex flex-col flex-wrap items-start space-y-16 px-4 sm:px-12 lg:flex-row lg:space-x-12 lg:space-y-0 lg:px-0 xl:flex-nowrap"
-        >
-          <div class="relative xl:w-1/2" id="contact-form-container"></div>
-          <div class="w-full lg:mt-0 lg:w-auto xl:w-1/4" id="contact-details-container">
-            <span data-key="business"
-              >invenus s.r.o., Sukova 49/4, 602 00 Brno, Czech Republic</span
-            >
-            <span data-key="vat">CZ06714846</span>
-            <span data-key="bank-eu-iban">CZ9320600000000001179006</span>
-            <span data-key="bank-eu-swift">CITFCZPPXXX</span>
-            <span data-key="bank-cz">2501382798/2010</span>
-          </div>
-          <div class="mainbody flex flex-col justify-start xl:w-1/4 xl:items-center">
-            <h4>Follow us on:</h4>
-            <div class="flex flex-row space-x-8 xl:flex-col xl:space-x-0">
+            <div class="flex space-x-3">
               <a
                 href="https://www.linkedin.com/company/invenus/"
                 title="invenus.dev LinkedIn Page"
@@ -387,6 +367,43 @@
               >
                 <img src="/src/assets/socials/github.svg" alt="Github" class="social-icon" />
               </a>
+            </div>
+          </div>
+        </div>
+        <div class="bg-white p-8 sm:container sm:mx-auto sm:rounded-2xl sm:p-14">
+          <div
+            class="flex flex-col space-y-16 lg:flex-row lg:items-start lg:space-x-16 lg:space-y-0"
+          >
+            <div class="relative lg:w-1/2" id="contact-form-container"></div>
+            <div class="flex flex-col space-y-8 lg:w-1/2">
+              <div id="contact-main-container">
+                <span data-key="header">Main contact</span>
+                <span data-key="email" data-url="mailto:jan@invenus.dev">jan@invenus.dev</span>
+                <span data-key="phone" data-url="tel:+420722211443">+420 722 211 443</span>
+              </div>
+              <div id="contact-location-container">
+                <span data-key="header">Office location</span>
+                <span
+                  data-key="location"
+                  data-url="https://www.google.com/maps/place/invenus/@49.47226,17.1128874,17z/data=!4m14!1m7!3m6!1s0x471257c4fa1185cb:0x5d3dd2b577368bc3!2sinvenus!8m2!3d49.47223!4d17.1151985!16s%2Fg%2F11vdrpx20x!3m5!1s0x471257c4fa1185cb:0x5d3dd2b577368bc3!8m2!3d49.47223!4d17.1151985!16s%2Fg%2F11vdrpx20x?hl=en-GB&entry=ttu"
+                  >nám. Edmunda Husserla 16, Prostějov, CZ</span
+                >
+              </div>
+              <div id="contact-invoice-container">
+                <span data-key="header">Invoice details</span>
+                <span data-key="business" data-label="Headquarters"
+                  >invenus s.r.o., Sukova 49/4,<br />602 00 Brno, Czech Republic</span
+                >
+                <span data-key="vat" data-label="VAT ID">CZ06714846</span>
+              </div>
+              <div id="contact-bank-container">
+                <span data-key="header">Bank accounts</span>
+                <span data-key="subheader">1. EUR / USD / GBP / CZK payments:</span>
+                <span data-key="bank-eu-iban" data-label="IBAN">CZ9320600000000001179006</span>
+                <span data-key="bank-eu-swift" data-label="SWIFT">CITFCZPPXXX</span>
+                <span data-key="subheader">2. CZK payments - from Czech accounts only:</span>
+                <span data-key="bank-cz" data-label="Account No">2501382798/2010</span>
+              </div>
             </div>
           </div>
         </div>

@@ -5,8 +5,7 @@ import Testimonials from './components/Testimonials';
 import ContactForm from './components/ContactForm';
 import WithSvr from './components/WithSvr';
 import './css/main.css';
-import ContactDetails from './components/ContactDetails';
-import ContactMain from './components/ContactMain';
+import ContactDetails, { ContactObject } from './components/ContactDetails';
 import Faqs from './components/Faqs';
 
 const FIXED_OFFSET = 80;
@@ -54,26 +53,43 @@ if (contactFormContainer) {
 // Contact containers
 const getContactValues = (contactContainer: HTMLElement) => {
   const spanElements = contactContainer.querySelectorAll('span');
-  const contactObject: Record<string, string> = {};
-  spanElements.forEach((spanElement) => {
-    const key = spanElement.dataset?.key as string;
-    const value = spanElement.innerText as string;
-    contactObject[key] = value;
-  });
+  const contactObject: ContactObject[] = [];
+  spanElements.forEach((spanElement) =>
+    contactObject.push({
+      key: spanElement.dataset?.key as string,
+      value: spanElement.innerHTML as string,
+      url: spanElement.dataset?.url,
+      label: spanElement.dataset?.label,
+    })
+  );
   return contactObject;
 };
 
 const contactMainContainer = document.getElementById('contact-main-container');
 if (contactMainContainer) {
   createRoot(contactMainContainer).render(
-    <ContactMain data={getContactValues(contactMainContainer)} />
+    <ContactDetails data={getContactValues(contactMainContainer)} />
   );
 }
 
-const contactDetailsContainer = document.getElementById('contact-details-container');
-if (contactDetailsContainer) {
-  createRoot(contactDetailsContainer).render(
-    <ContactDetails data={getContactValues(contactDetailsContainer)} />
+const contactLocationContainer = document.getElementById('contact-location-container');
+if (contactLocationContainer) {
+  createRoot(contactLocationContainer).render(
+    <ContactDetails data={getContactValues(contactLocationContainer)} />
+  );
+}
+
+const contactInvoiceContainer = document.getElementById('contact-invoice-container');
+if (contactInvoiceContainer) {
+  createRoot(contactInvoiceContainer).render(
+    <ContactDetails data={getContactValues(contactInvoiceContainer)} />
+  );
+}
+
+const contactBankContainer = document.getElementById('contact-bank-container');
+if (contactBankContainer) {
+  createRoot(contactBankContainer).render(
+    <ContactDetails data={getContactValues(contactBankContainer)} />
   );
 }
 

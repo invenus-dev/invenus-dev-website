@@ -31,6 +31,7 @@ module.exports = {
           grade2: '#EBEBEB',
           grade3: '#E0E0E0',
           grade4: '#D6D6D6',
+          grade5: '#6B7280',
         },
       },
       screens: {

@@ -86,7 +86,7 @@
 }
 
 .mainbody p.small {
-  @apply text-sm;
+  @apply max-w-sm text-sm;
 }
 
 .mainbody ul {
@@ -138,8 +138,9 @@
 }
 
 .btn-submit {
-  @apply bg-primary text-tertiary
-  ring-secondary hover:bg-primary-dark;
+  @apply rounded-xl bg-primary
+  text-tertiary ring-secondary
+  hover:bg-primary-dark;
 }
 
 .benefit-card {
@@ -177,7 +178,7 @@
 }
 
 .input-style {
-  @apply block w-full rounded-md border-0 py-1.5 text-lg text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-secondary sm:leading-6;
+  @apply block w-full rounded-md border-0 bg-tertiary-grade1 py-1.5 text-lg text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-secondary sm:leading-6;
 }
 
 .input-error {
@@ -189,7 +190,7 @@
 }
 
 .social-icon {
-  @apply my-4 block h-12 w-12;
+  @apply my-4 block h-10 w-10;
 }
 
 @keyframes blink {
