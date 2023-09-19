@@ -33,7 +33,7 @@ const TechStack = ({ stackFile }: Props) => {
   const currentStack = data?.find(({ hash }) => hash === currentTech);
 
   return (
-    <div className="bg-primary px-6 py-24 text-tertiary-grade1 sm:rounded-3xl sm:px-8">
+    <div className="bg-primary px-6 py-16 text-tertiary-grade1 sm:rounded-3xl sm:px-8 lg:py-24">
       <div className="mx-auto max-w-6xl">
         <div className="flex items-start justify-center">
           <h3 className="mb-6 font-heading text-5xl">Our Tech Stack explained</h3>

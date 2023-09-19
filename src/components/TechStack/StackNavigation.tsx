@@ -9,7 +9,7 @@ type Props = {
 const StackNavigation = ({ stacks, currentStackHash, onSelect }: Props) => {
   return (
     <div className="mb-6 flex justify-center">
-      <ul className="flex flex-wrap justify-center gap-x-2 gap-y-3 rounded-2xl px-2 py-2 lg:bg-primary-dark">
+      <ul className="flex flex-wrap justify-center gap-x-2 gap-y-3 rounded-2xl lg:bg-primary-dark lg:px-2 lg:py-2">
         {stacks.map(({ hash, title }) => (
           <li key={hash} className="">
             <a
