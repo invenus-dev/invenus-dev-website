@@ -102,20 +102,21 @@
       <div
         id="sticky-trigger"
         data-target="#about"
-        class="js-scroll-target flex flex-col lg:flex-row"
+        class="js-scroll-target flex flex-col px-6 lg:flex-row"
       >
-        <div class="hidden px-8 lg:block lg:w-1/5">
+        <div class="hidden lg:block lg:w-[22%]">
           <img
-            src="/src/assets/jan-foto.jpg"
+            src="/src/assets/photos/jan-about.jpg"
+            srcset="/src/assets/photos/jan-about.jpg 1x, /src/assets/photos/jan-about@2x.jpg 2x"
             alt="Jan Maly"
-            class="block border-4 border-primary shadow-lg lg:rounded-[30%]"
+            class="mx-auto block w-full max-w-[244px] border-4 border-primary shadow-lg lg:rounded-[3rem]"
           />
           <div class="mt-4 text-center">
             <strong>Jan Malý</strong><br />
             Founder of invenus
           </div>
         </div>
-        <div class="mainbody mb-16 px-8 lg:mb-0 lg:block lg:w-2/5 lg:px-8">
+        <div class="mainbody mb-16 px-8 lg:mb-0 lg:block lg:w-[39%] lg:px-8">
           <div>
             <span class="headnote">introduction</span>
             <h2>Who are we</h2>
@@ -133,7 +134,7 @@
             </p>
           </div>
         </div>
-        <div class="mainbody px-8 lg:w-2/5 lg:px-8">
+        <div class="mainbody px-8 lg:w-[39%] lg:px-8">
           <span class="headnote">target audience</span>
           <h2>Best Experience</h2>
           <p>
@@ -154,18 +155,19 @@
     <div data-anchor-end="about"></div>
     <div data-anchor-start="tech-stack"></div>
     <section id="tech-stack-container" data-target="#tech-stack" class="js-scroll-target pb-10">
-      <div class="pb-8 md:container md:mx-auto lg:px-6">
+      <div class="pb-24 md:container md:mx-auto lg:px-6">
         <div id="tech-stack" data-stack-file="/data/tech-stack.json"></div>
       </div>
     </section>
-    <section class="bg-primary py-12">
+    <section class="bg-primary py-14">
       <div class="container mx-auto max-w-4xl px-8">
         <div class="flex items-center">
-          <div class="hidden w-60 xms:block">
+          <div class="hidden w-[244px] xms:block">
             <img
-              src="/src/assets/jan-foto.jpg"
+              src="/src/assets/photos/jan-photo.jpg"
+              srcset="/src/assets/photos/jan-photo.jpg 1x, /src/assets/photos/jan-photo@2x.jpg 2x"
               alt="Jan Maly"
-              class="border-4 border-primary lg:-m-16 lg:rounded-[30%]"
+              class="max-w-[244px] border-4 border-primary lg:-m-24 lg:rounded-[2rem]"
             />
           </div>
           <div class="mainbody text-tertiary xms:ml-8 lg:ml-0">
@@ -177,7 +179,7 @@
     </section>
     <div data-anchor-end="tech-stack"></div>
     <div data-anchor-start="benefits"></div>
-    <section class="bg-tertiary-grade1 py-24">
+    <section class="bg-tertiary-grade1 pb-24 pt-32">
       <div data-target="#benefits" class="js-scroll-target px-8 md:container md:mx-auto lg:px-6">
         <div class="mainbody mb-12">
           <span class="headnote">Why with us</span>
@@ -336,9 +338,13 @@
         <div class="mb-4">
           <div class="flex flex-col items-center px-4 sm:px-12 lg:px-0">
             <img
-              src="/src/assets/jan-foto.jpg"
+              src="/src/assets/photos/jan-contact.jpg"
+              srcset="
+                /src/assets/photos/jan-contact.jpg    1x,
+                /src/assets/photos/jan-contact@2x.jpg 2x
+              "
               alt="Jan"
-              class="mb-4 h-auto max-w-[13.333rem] border-4 border-primary shadow-md lg:rounded-[4rem]"
+              class="mb-4 h-auto w-full max-w-[371px] border-4 border-primary shadow-md lg:rounded-[2rem]"
             />
             <span class="headnote">Interested in cooperation?</span>
             <h2>Contact Jan with your idea</h2>
