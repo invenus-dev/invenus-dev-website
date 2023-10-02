@@ -1,4 +1,5 @@
 import { TestimonialEntry } from '../Testimonials';
+import StarIcon from '../../assets/icons/star.svg';
 
 type Props = {
   testimonial: TestimonialEntry;
@@ -13,7 +14,7 @@ const Testimonial = ({ testimonial }: Props) => {
             <img
               key={i}
               alt="star"
-              src="/src/assets/icons/star.svg"
+              src={StarIcon}
               style={{ width: '1.1111rem', height: '1.04939rem' }}
             />
           ))}
@@ -22,7 +23,7 @@ const Testimonial = ({ testimonial }: Props) => {
       </div>
       <div className="flex flex-row-reverse items-center justify-start gap-8 xl:flex-col xl:items-start xl:gap-0 xl:space-x-0">
         <img
-          src={`/src/assets/photos/${photo}.jpg`}
+          src={`/testimonials/${photo}.jpg`}
           width="56"
           height="56"
           alt="client"
@@ -41,7 +42,7 @@ const Testimonial = ({ testimonial }: Props) => {
             <>{client}</>
           )}
           <img
-            src={`/src/assets/logos/${logo}.png`}
+            src={`/testimonials/${logo}.png`}
             alt="client"
             className="mt-3 hidden rounded-full xl:block"
           />
