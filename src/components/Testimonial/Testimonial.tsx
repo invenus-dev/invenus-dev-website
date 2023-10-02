@@ -24,6 +24,7 @@ const Testimonial = ({ testimonial }: Props) => {
       <div className="flex flex-row-reverse items-center justify-start gap-8 xl:flex-col xl:items-start xl:gap-0 xl:space-x-0">
         <img
           src={`/testimonials/${photo}.jpg`}
+          srcSet={`/testimonials/${photo}.jpg 1x, /testimonials/${photo}@2x.jpg 2x`}
           width="56"
           height="56"
           alt="client"
