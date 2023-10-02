@@ -85,7 +85,7 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="lg:max-w-lg">
+    <div className="">
       <h3>Leave a message</h3>
       {response === true && (
         <FormResponse heading="Message sent successfully!">
@@ -149,11 +149,11 @@ const ContactForm = () => {
             value={values.msg}
             error={errors.msg}
           />
-          <div className="flex flex-col items-center space-y-6 xs:flex-row xs:space-x-6 xs:space-y-0">
+          <div className="flex flex-col items-center space-y-6 xs:flex-row xs:space-x-8 xs:space-y-0 xl:space-x-16">
             <button disabled={isSubmitting} className="btn btn-submit" type="submit">
               Submit
             </button>
-            <p className="small">
+            <p className="small max-w-sm">
               Your personal details are collected only for the purpose of contacting you back and
               are not shared with any 3<sup>rd</sup> party outside of invenus except for{' '}
               <a

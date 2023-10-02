@@ -24,7 +24,7 @@ export const TechnologyCell = ({ value, type, isTableCell = true }: TechnologyCe
   let extraClasses = '';
 
   if (typeLower === 'tech') {
-    extraClasses = 'font-mono text-sm';
+    extraClasses = 'font-bold';
   }
 
   if (typeLower === 'since') {

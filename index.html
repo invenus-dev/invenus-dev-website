@@ -14,10 +14,14 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png" />
+    <link rel="manifest" href="/favicons/site.webmanifest" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@500&family=Teko:wght@600&family=Yantramanav:wght@300;400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@500&family=Teko:wght@400&family=Yantramanav:wght@300;400;700&display=swap"
       rel="stylesheet"
     />
     <script src="https://www.google.com/recaptcha/api.js?render=%VITE_RECAPTCHA_SITE_KEY%"></script>
@@ -25,114 +29,157 @@
   </head>
   <body>
     <nav class="sticky-header bg-primary px-4 py-2 text-tertiary">
-      <div class="flex items-center justify-between space-x-8 px-2 lg:container lg:mx-auto lg:px-0">
-        <div class="flex items-center space-x-6 lg:space-x-6">
-          <a href="#" class="small-logo js-anchor hidden">
+      <div
+        class="container mx-auto px-8 lg:mx-auto lg:flex lg:items-center lg:justify-between lg:px-6"
+      >
+        <div class="flex items-center justify-between space-x-8">
+          <a href="#" class="small-logo js-anchor">
             <img
               class="block w-8"
               src="/src/assets/icons/invenus-logo-symbol.svg"
               alt="invenus logo symbol"
             />
           </a>
+          <div class="flex space-x-8 lg:hidden">
+            <a href="#contacts" class="btn btn-nav js-anchor hidden xms:inline-flex">Contacts</a>
+            <button class="hamburger navToggle block lg:hidden">
+              <div class="seg0">
+                <div class="seg1">
+                  <div class="seg2"></div>
+                  <div class="seg3"></div>
+                  <div class="seg4"></div>
+                  <div class="seg5">
+                    <div class="seg6"></div>
+                    <div class="seg7"></div>
+                  </div>
+                </div>
+              </div>
+            </button>
+          </div>
+        </div>
+        <div class="nav-dropdown">
           <a href="#about" class="nav-link js-anchor">About</a>
           <a href="#tech-stack" class="nav-link js-anchor">Tech stack</a>
           <a href="#benefits" class="nav-link js-anchor">Benefits</a>
           <a href="#testimonials" class="nav-link js-anchor">Testimonials</a>
           <a href="#our-story" class="nav-link js-anchor">Our Story</a>
-          <a href="#contact" class="nav-link js-anchor">Contact</a>
           <a href="#faqs" class="nav-link js-anchor">FAQs</a>
+          <a href="#contacts" class="nav-link js-anchor contact-hide">Contacts</a>
         </div>
-        <div>
-          <a href="#contact" class="btn btn-nav js-anchor">Contact us</a>
-        </div>
+        <a href="#contacts" class="btn btn-nav js-anchor hidden lg:inline-flex">Contacts</a>
       </div>
     </nav>
     <main class="bg-primary px-4 pb-20 pt-8">
       <div
-        class="container mx-auto flex flex-col space-x-0 space-y-12 md:flex-row md:space-x-8 md:space-y-0"
+        class="container mx-auto flex min-h-[75vh] flex-col space-x-0 xms:px-8 lg:flex-row lg:space-x-8 lg:px-6"
       >
-        <div
-          class="flex flex-col items-center justify-center text-tertiary xs:text-lg md:w-1/2 md:text-xl xl:text-2xl"
-        >
-          <h1 class="hidden">invenus &ndash; your idea, our code</h1>
-          <img src="/src/assets/logo_safe_512x249.png" alt="invenus logo" />
-          <code class="inline-block"
-            >{ your: <span class="text-secondary">"idea"</span>, our:
-            <span class="text-secondary">code()</span> }</code
-          >
+        <div class="flex items-center py-12 lg:w-1/2 lg:py-0">
+          <div class="mainbody text-tertiary xs:text-lg md:text-xl lg:max-w-md xl:text-2xl">
+            <img src="/src/assets/logo_cutoff_358x117.png" alt="invenus logo" />
+            <h1>Experienced software house <span class="text-secondary">for the future</span></h1>
+            <div class="mt-8 flex space-x-4">
+              <a class="btn btn-yellow js-anchor" href="#about">More info</a>
+              <a class="btn btn-blue js-anchor" href="#tech-stack">Tech stack</a>
+            </div>
+            <div class="mt-6 flex items-center space-x-4">
+              <div class="h-6 w-6 rounded-full bg-green-400"></div>
+              <div class="text-lg font-bold uppercase">
+                Currently <span class="text-green-400">available</span> capacity
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="flex justify-center md:w-1/2">
-          <img src="/src/assets/developer_transparent.png" />
+        <div class="flex lg:w-1/2 lg:justify-center">
+          <img
+            class="h-auto object-contain lg:max-w-lg"
+            src="/src/assets/developer_transparent.png"
+          />
         </div>
       </div>
     </main>
     <div data-anchor-start="about"></div>
-    <section class="py-32 md:container md:mx-auto">
-      <div id="sticky-trigger" data-target="#about" class="js-scroll-target flex">
-        <div class="hidden w-1/3 items-center justify-center text-lg lg:flex">
-          <div
-            class="cubicle"
-            data-text="/* We have been in web development since 2007. Not much can surprise us today. */"
-          ></div>
+    <section class="py-16 md:container md:mx-auto lg:py-32">
+      <div
+        id="sticky-trigger"
+        data-target="#about"
+        class="js-scroll-target flex flex-col px-6 lg:flex-row"
+      >
+        <div class="hidden lg:block lg:w-[22%]">
+          <img
+            src="/src/assets/photos/jan-about.jpg"
+            srcset="/src/assets/photos/jan-about.jpg 1x, /src/assets/photos/jan-about@2x.jpg 2x"
+            alt="Jan Maly"
+            class="mx-auto block w-full max-w-[244px] border-4 border-primary shadow-lg lg:rounded-[3rem]"
+          />
+          <div class="mt-4 text-center">
+            <strong>Jan Malý</strong><br />
+            Founder of invenus
+          </div>
         </div>
-        <div class="mainbody px-8 lg:w-2/3 lg:px-0 lg:pr-4">
-          <span class="headnote">introduction</span>
-          <h2>What is invenus</h2>
+        <div class="mainbody mb-16 px-8 lg:mb-0 lg:block lg:w-[39%] lg:px-8">
+          <div>
+            <span class="headnote">introduction</span>
+            <h2>Who are we</h2>
+            <p>
+              Invenus is a independent developer collective based around <strong>Jan Malý</strong>,
+              web developer with more than 16&nbsp;years of commercial experience. Jan has a strong
+              tech background, starting from languages such as PHP and gradually shifting towards
+              JavaScript.
+            </p>
+            <p>
+              We are building on a <strong>well of experience and knowledge</strong>. And we're
+              expected to grow in the future, bringing onboard people with similar mindset as Jan.
+              With the advent of AI revolution, we expect a lot of development opportunities in this
+              decade to help clients grow their business.
+            </p>
+          </div>
+        </div>
+        <div class="mainbody px-8 lg:w-[39%] lg:px-8">
+          <span class="headnote">target audience</span>
+          <h2>Best Experience</h2>
           <p>
-            Invenus is a independent developer collective based around <strong>Jan Malý</strong>,
-            web developer with more than 15&nbsp;years of commercial experience. Jan has a strong
-            tech background, starting from languages such as PHP and gradually shifting towards
-            JavaScript.
+            Over the years, we found out the kind of clients that our cooperation just "clicks"
+            with. It's people with a clear vision of what they want to build, with at least basic
+            technical understanding. Those who can appreciate the high quality we bring to the
+            table.
           </p>
-          <h3 class="mt-8">What we do</h3>
+          <p class="pb-4"><strong>The best relationships</strong> we had so far were with:</p>
           <ul>
-            <li>
-              <strong>Full-stack JavaScript development</strong> for the web especially with React /
-              Next,
-            </li>
-            <li>
-              maintenance and development of <strong>existing projects</strong> after onboarding,
-            </li>
-            <li>supporting wide range of setups, monolith or service-based.</li>
+            <li><strong>product owners</strong> who need to build or maintain a project,</li>
+            <li><strong>agency owners</strong> who need their clients serviced,</li>
+            <li><strong>professionals</strong> with a vision and a technical understanding.</li>
           </ul>
-          <p class="mt-6">
-            <a href="#tech-stack" id="tech-stack-trigger" class="btn btn-secondary js-anchor"
-              >Explore in more detail
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                width="12"
-                height="12"
-                class="h-6 w-6"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M9 12.75l3 3m0 0l3-3m-3 3v-7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-            </a>
-          </p>
         </div>
       </div>
     </section>
     <div data-anchor-end="about"></div>
     <div data-anchor-start="tech-stack"></div>
-    <section
-      id="tech-stack-container"
-      data-target="#tech-stack"
-      class="js-scroll-target hidden pb-10"
-    >
-      <div class="md:container sm:px-8 md:mx-auto lg:px-6">
+    <section id="tech-stack-container" data-target="#tech-stack" class="js-scroll-target pb-10">
+      <div class="pb-24 md:container md:mx-auto lg:px-6">
         <div id="tech-stack" data-stack-file="/data/tech-stack.json"></div>
+      </div>
+    </section>
+    <section class="bg-primary py-14">
+      <div class="container mx-auto max-w-4xl px-8">
+        <div class="flex items-center">
+          <div class="hidden w-[244px] xms:block">
+            <img
+              src="/src/assets/photos/jan-photo.jpg"
+              srcset="/src/assets/photos/jan-photo.jpg 1x, /src/assets/photos/jan-photo@2x.jpg 2x"
+              alt="Jan Maly"
+              class="max-w-[244px] border-4 border-primary lg:-m-24 lg:rounded-[2rem]"
+            />
+          </div>
+          <div class="mainbody text-tertiary xms:ml-8 lg:ml-0">
+            <p class="large">Connect with Jan to <strong>get your ideas live</strong>!</p>
+            <a href="#contacts" class="btn btn-primary js-anchor">Get in touch</a>
+          </div>
+        </div>
       </div>
     </section>
     <div data-anchor-end="tech-stack"></div>
     <div data-anchor-start="benefits"></div>
-    <section class="bg-tertiary-grade1 py-24">
+    <section class="bg-tertiary-grade1 pb-24 pt-32">
       <div data-target="#benefits" class="js-scroll-target px-8 md:container md:mx-auto lg:px-6">
         <div class="mainbody mb-12">
           <span class="headnote">Why with us</span>
@@ -214,76 +261,38 @@
         </div>
       </div>
     </section>
-    <section class="container mx-auto py-32">
-      <div class="flex flex-col-reverse px-8 lg:flex-row lg:items-end lg:space-x-2 lg:px-6">
-        <div class="mainbody lg:w-2/3 xl:w-3/5">
-          <span class="headnote">target audience</span>
-          <h2>Are you our ideal client?</h2>
-          <p>
-            Over the years, we found out the kind of clients that our cooperation just "clicks"
-            with. It's people with a clear vision of what they want to build, with at least basic
-            technical understanding. Those who can appreciate the high quality we bring to the
-            table.
-          </p>
-          <p class="pb-4"><strong>The best relationships</strong> we had so far were with:</p>
-          <ul>
-            <li><strong>product owners</strong> who need to build or maintain a project,</li>
-            <li><strong>agency owners</strong> who need their clients serviced,</li>
-            <li><strong>professionals</strong> with a vision and a technical understanding.</li>
-          </ul>
-        </div>
-        <div class="w-1/2 text-lg lg:flex lg:w-1/3 xl:w-2/5">
-          <img src="/src/assets/clients.jpg" alt="clients illustration" />
-        </div>
-      </div>
-    </section>
-    <section class="bg-primary py-12">
-      <div class="container mx-auto max-w-4xl px-8">
-        <div class="flex items-center">
-          <div class="hidden w-60 xms:block">
-            <img
-              src="/src/assets/jan-foto.jpg"
-              alt="Jan Maly"
-              class="border-4 border-primary lg:-m-16 lg:rounded-full"
-            />
-          </div>
-          <div class="mainbody text-tertiary xms:ml-8 lg:ml-0">
-            <p class="large">Connect with Jan to <strong>get your ideas live</strong>!</p>
-            <a href="#contact" class="btn btn-primary js-anchor">Get in touch</a>
-          </div>
-        </div>
-      </div>
-    </section>
+
     <div data-anchor-end="benefits"></div>
     <div data-anchor-start="testimonials"></div>
     <section class="py-32">
       <div
         data-target="#testimonials"
-        class="mainbody js-scroll-target container mx-auto mb-12 px-8"
+        class="mainbody js-scroll-target container mx-auto mb-12 px-6"
       >
         <span class="headnote">Testimonials</span>
         <h2>What do clients say about us</h2>
       </div>
       <div
-        class="mx-auto max-w-screen-2xl"
+        class="container mx-auto"
         id="testimonial-container"
         data-testimonials-file="/data/testimonials.json"
       ></div>
     </section>
     <div data-anchor-end="testimonials"></div>
-    <div data-anchor-start="our-story"></div>
-    <section data-target="#our-story" class="js-scroll-target mb-32">
-      <div class="px-8 md:container md:mx-auto lg:px-6">
-        <div class="flex">
-          <div class="hidden w-1/3 items-center justify-center text-lg lg:flex">
-            <div
-              class="cubicle"
-              data-text="/* tl;dr: invenus kicked off in 2023 and is built on significant experience. */"
-            ></div>
-          </div>
-          <div class="mainbody w-full lg:w-2/3 lg:px-0 lg:pr-4">
-            <span class="headnote">Jan's story</span>
-            <h2>How did we get here</h2>
+    <section data-target="#our-story" class="bg-primary px-0 py-24 sm:px-0 lg:px-6">
+      <div
+        class="container mx-auto flex flex-col items-center space-y-10 px-6 lg:flex-row lg:space-x-20 lg:space-y-0"
+      >
+        <div class="flex flex-col items-center lg:w-1/2">
+          <img src="/src/assets/logo_cutoff_358x117.png" alt="invenus logo" class="block" />
+          <code class="mt-4 block text-xl text-white"
+            >{ your: <span class="text-secondary">"idea"</span>, our:
+            <span class="text-secondary">code()</span> }</code
+          >
+        </div>
+        <div class="mainbody mainbody-light lg:w-1/2">
+          <div class="max-w-xl">
+            <h2>Our origin story</h2>
             <p>
               Jan started practising commercial website development in 2007. In 2010, he and two
               other partners estabilished <strong>Kurzor</strong>. Kurzor originally started as a
@@ -295,77 +304,51 @@
               clients. The company was peacefully disbanded from 2023 and Jan continues in his own
               brand, invenus, supporting many of the original customers and clients from Kurzor.
             </p>
+            <h2 class="text-secondary">Core values</h2>
+            <p class="pb-4">
+              No matter how the future will be, one thing is certain. Invenus will always adhere to
+              <strong>three simple core values</strong>:
+            </p>
+            <ul>
+              <li>Honesty &ndash; <em>always the truth no matter how impactful</em>.</li>
+              <li>Reliability &ndash; <em>what's agreed is solid with us</em>.</li>
+              <li>Operational agility &ndash; <em>no unneccessary processes</em>.</li>
+            </ul>
           </div>
-        </div>
-      </div>
-    </section>
-    <section class="bg-primary px-6 py-24 sm:px-0">
-      <div
-        class="flex flex-col items-center space-y-8 lg:flex-row lg:space-x-16 lg:space-y-0 xl:space-x-0"
-      >
-        <div class="ml-0 flex justify-center lg:ml-8 lg:w-1/3 xl:w-1/2">
-          <img
-            src="/src/assets/software_house.png"
-            class="h-auto w-full max-w-lg sm:w-auto"
-            alt="building a software house"
-          />
-        </div>
-        <div class="mainbody mainbody-light max-w-xl lg:w-2/3 xl:w-1/2">
-          <h2 class="text-center lg:text-left">
-            Building a software house<br /><span class="text-secondary">for the future</span>
-          </h2>
-          <p class="mt-8 lg:mt-0">
-            While <strong>invenus</strong> is still in early phases, it is building on a well of
-            experience and knowledge. And it is expected to grow in the future, bringing onboard
-            people with similar mindset as Jan. With the advent of AI revolution, we expect a lot of
-            development opportunities in this decade to help clients grow their business.
-          </p>
-          <p class="pb-4">
-            No matter how the future will be, one thing is certain. Invenus will always adhere to
-            <strong>three simple core values</strong>:
-          </p>
-          <ul>
-            <li>Honesty &ndash; <em>always the truth no matter how impactful</em>.</li>
-            <li>Reliability &ndash; <em>what's agreed is solid with us</em>.</li>
-            <li>Operational agility &ndash; <em>no unneccessary processes</em>.</li>
-          </ul>
         </div>
       </div>
     </section>
     <div data-anchor-end="our-story"></div>
-    <div data-anchor-start="contact"></div>
-    <section class="py-32">
+    <div data-anchor-start="faqs"></div>
+    <section class="pb-16 pt-24">
+      <div data-target="#faqs" class="mainbody js-scroll-target container mx-auto mb-12 px-8">
+        <span class="headnote">Still not convinced?</span>
+        <h2>Let's answer most common questions</h2>
+      </div>
       <div
-        data-target="#contact"
-        class="js-scroll-target mainbody mb-12 lg:container lg:mx-auto lg:px-8"
-      >
+        class="max-w-screen-4xl mx-auto"
+        id="faqs-container"
+        data-faqs-file="/data/faqs.json"
+      ></div>
+    </section>
+    <div data-anchor-end="faqs"></div>
+    <div data-anchor-start="contact"></div>
+    <section class="bg-secondary-light pt-16 sm:pb-16">
+      <div data-target="#contacts" class="js-scroll-target mainbody mb-4 lg:px-8">
         <div class="mb-4">
-          <div class="px-4 sm:px-12 lg:px-0">
+          <div class="flex flex-col items-center px-4 sm:px-12 lg:px-0">
+            <img
+              src="/src/assets/photos/jan-contact.jpg"
+              srcset="
+                /src/assets/photos/jan-contact.jpg    1x,
+                /src/assets/photos/jan-contact@2x.jpg 2x
+              "
+              alt="Jan"
+              class="mb-4 h-auto w-full max-w-[371px] border-4 border-primary shadow-md lg:rounded-[2rem]"
+            />
             <span class="headnote">Interested in cooperation?</span>
             <h2>Contact Jan with your idea</h2>
-          </div>
-          <div id="contact-main-container">
-            <span data-key="name">Jan Malý</span>
-            <span data-key="email">jan@invenus.dev</span>
-            <span data-key="phone">+420 722 211 443</span>
-          </div>
-        </div>
-        <div
-          class="flex flex-col flex-wrap items-start space-y-16 px-4 sm:px-12 lg:flex-row lg:space-x-12 lg:space-y-0 lg:px-0 xl:flex-nowrap"
-        >
-          <div class="relative xl:w-1/2" id="contact-form-container"></div>
-          <div class="w-full lg:mt-0 lg:w-auto xl:w-1/4" id="contact-details-container">
-            <span data-key="business"
-              >invenus s.r.o., Sukova 49/4, 602 00 Brno, Czech Republic</span
-            >
-            <span data-key="vat">CZ06714846</span>
-            <span data-key="bank-eu-iban">CZ9320600000000001179006</span>
-            <span data-key="bank-eu-swift">CITFCZPPXXX</span>
-            <span data-key="bank-cz">2501382798/2010</span>
-          </div>
-          <div class="mainbody flex flex-col justify-start xl:w-1/4 xl:items-center">
-            <h4>Follow us on:</h4>
-            <div class="flex flex-row space-x-8 xl:flex-col xl:space-x-0">
+            <div class="flex space-x-3">
               <a
                 href="https://www.linkedin.com/company/invenus/"
                 title="invenus.dev LinkedIn Page"
@@ -397,29 +380,53 @@
             </div>
           </div>
         </div>
+        <div class="bg-white p-8 sm:container sm:mx-auto sm:rounded-2xl sm:p-14">
+          <div
+            class="flex flex-col space-y-16 lg:flex-row lg:items-start lg:space-x-16 lg:space-y-0"
+          >
+            <div class="relative lg:w-1/2" id="contact-form-container"></div>
+            <div class="flex flex-col space-y-8 lg:w-1/2">
+              <div id="contact-main-container">
+                <span data-key="header">Main contact</span>
+                <span data-key="email" data-url="mailto:jan@invenus.dev">jan@invenus.dev</span>
+                <span data-key="phone" data-url="tel:+420722211443">+420 722 211 443</span>
+              </div>
+              <div id="contact-location-container">
+                <span data-key="header">Office location</span>
+                <span
+                  data-key="location"
+                  data-url="https://www.google.com/maps/place/invenus/@49.47226,17.1128874,17z/data=!4m14!1m7!3m6!1s0x471257c4fa1185cb:0x5d3dd2b577368bc3!2sinvenus!8m2!3d49.47223!4d17.1151985!16s%2Fg%2F11vdrpx20x!3m5!1s0x471257c4fa1185cb:0x5d3dd2b577368bc3!8m2!3d49.47223!4d17.1151985!16s%2Fg%2F11vdrpx20x?hl=en-GB&entry=ttu"
+                  >nám. Edmunda Husserla 16, Prostějov, CZ</span
+                >
+              </div>
+              <div id="contact-invoice-container">
+                <span data-key="header">Invoice details</span>
+                <span data-key="business" data-label="Headquarters"
+                  >invenus s.r.o., Sukova 49/4,<br />602 00 Brno, Czech Republic</span
+                >
+                <span data-key="vat" data-label="VAT ID">CZ06714846</span>
+              </div>
+              <div id="contact-bank-container">
+                <span data-key="header">Bank accounts</span>
+                <span data-key="subheader">1. EUR / USD / GBP / CZK payments:</span>
+                <span data-key="bank-eu-iban" data-label="IBAN">CZ9320600000000001179006</span>
+                <span data-key="bank-eu-swift" data-label="SWIFT">CITFCZPPXXX</span>
+                <span data-key="subheader">2. CZK payments - from Czech accounts only:</span>
+                <span data-key="bank-cz" data-label="Account No">2501382798/2010</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
     <div data-anchor-end="contact"></div>
-    <div data-anchor-start="faqs"></div>
-    <section class="pb-24">
-      <div data-target="#faqs" class="mainbody js-scroll-target container mx-auto mb-12 px-8">
-        <span class="headnote">Still not convinced?</span>
-        <h2>Let's answer most common questions</h2>
-      </div>
-      <div
-        class="max-w-screen-4xl mx-auto"
-        id="faqs-container"
-        data-faqs-file="/data/faqs.json"
-      ></div>
-    </section>
-    <div data-anchor-end="faqs"></div>
     <section class="bg-primary px-6 py-32 sm:px-0">
       <div class="container mx-auto">
         <div class="mb-12 text-center">
           <h2
             class="mb-8 flex items-center justify-center font-heading text-4xl text-tertiary-grade2"
           >
-            <span class="text-right leading-none">So&hellip; this was</span>
+            <span class="text-right leading-none">So&hellip; this is</span>
             <img
               src="/src/assets/logo_safe_512x249.png"
               alt="invenus.dev"
@@ -427,8 +434,8 @@
             />
           </h2>
           <p class="text-xl leading-relaxed text-tertiary-grade2">
-            Hope you liked our introduction.<br />Feel free to
-            <a href="#contact" class="js-anchor text-secondary underline underline-offset-4"
+            Hope you like our introduction.<br />Feel free to
+            <a href="#contacts" class="js-anchor text-secondary underline underline-offset-4"
               >contact us</a
             >
             with your idea!

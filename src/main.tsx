@@ -4,10 +4,8 @@ import TechStack from './components/TechStack';
 import Testimonials from './components/Testimonials';
 import ContactForm from './components/ContactForm';
 import WithSvr from './components/WithSvr';
-import { setUrlParameterValue, getParameterValue } from './utils/paramRouter';
 import './css/main.css';
-import ContactDetails from './components/ContactDetails';
-import ContactMain from './components/ContactMain';
+import ContactDetails, { ContactObject } from './components/ContactDetails';
 import Faqs from './components/Faqs';
 
 const FIXED_OFFSET = 80;
@@ -21,80 +19,17 @@ rootEls.map((rootEl) => {
   root.render(<Cubicle text={text} />);
 });
 
-const signalTechStackOpen = () => {
-  const event = new CustomEvent('tech-stack-open');
-  document.dispatchEvent(event);
-};
-
 // Tech Stack
-let techStackInitialized = false;
-const techStackContainerEl = document.getElementById('tech-stack-container');
-const techStackTriggerEl = document.getElementById('tech-stack-trigger');
 const techStackEl = document.getElementById('tech-stack');
-const TECH_STACK_SCROLL_BACK_ON_CLOSE = 230;
 
-// when tech stack containers are detected
-if (techStackContainerEl && techStackTriggerEl && techStackEl) {
-  const openTechStack = () => {
-    techStackTriggerEl.classList.add('hidden');
-    techStackContainerEl.classList.remove('hidden');
-
-    // init react TechStack component
-    if (!techStackInitialized) {
-      techStackInitialized = true;
-      const stackFile = techStackEl.dataset?.stackFile as string;
-
-      // init react TechStack component with SVR settings
-      createRoot(techStackEl).render(
-        <WithSvr>
-          <TechStack
-            stackFile={stackFile}
-            onClose={() => {
-              setUrlParameterValue('tech-stack', null);
-              window.scrollTo({
-                top: window.scrollY - TECH_STACK_SCROLL_BACK_ON_CLOSE,
-                behavior: 'smooth',
-              });
-              closeTechStack();
-            }}
-          />
-        </WithSvr>
-      );
-    }
-  };
-
-  const closeTechStack = () => {
-    techStackTriggerEl.classList.remove('hidden');
-    techStackContainerEl.classList.add('hidden');
-  };
-
-  const testTechStackFromUrl = () => {
-    const techStackParam = getParameterValue('tech-stack', null);
-    if (techStackParam === 'on') {
-      openTechStack();
-    } else {
-      closeTechStack();
-    }
-  };
-
-  techStackTriggerEl.addEventListener('click', (e) => {
-    e.preventDefault();
-    setUrlParameterValue('tech-stack', 'on');
-    openTechStack();
-  });
-
-  // externally triggered tech stack opens
-  document.addEventListener('tech-stack-open', () => {
-    if (techStackContainerEl.classList.contains('hidden')) {
-      setUrlParameterValue('tech-stack', 'on');
-      openTechStack();
-    }
-  });
-
-  testTechStackFromUrl();
-  window.onpopstate = () => {
-    testTechStackFromUrl();
-  };
+if (techStackEl) {
+  // init react TechStack component with SVR settings
+  const stackFile = techStackEl.dataset?.stackFile as string;
+  createRoot(techStackEl).render(
+    <WithSvr>
+      <TechStack stackFile={stackFile} />
+    </WithSvr>
+  );
 }
 
 // Testimonials
@@ -118,26 +53,43 @@ if (contactFormContainer) {
 // Contact containers
 const getContactValues = (contactContainer: HTMLElement) => {
   const spanElements = contactContainer.querySelectorAll('span');
-  const contactObject: Record<string, string> = {};
-  spanElements.forEach((spanElement) => {
-    const key = spanElement.dataset?.key as string;
-    const value = spanElement.innerText as string;
-    contactObject[key] = value;
-  });
+  const contactObject: ContactObject[] = [];
+  spanElements.forEach((spanElement) =>
+    contactObject.push({
+      key: spanElement.dataset?.key as string,
+      value: spanElement.innerHTML as string,
+      url: spanElement.dataset?.url,
+      label: spanElement.dataset?.label,
+    })
+  );
   return contactObject;
 };
 
 const contactMainContainer = document.getElementById('contact-main-container');
 if (contactMainContainer) {
   createRoot(contactMainContainer).render(
-    <ContactMain data={getContactValues(contactMainContainer)} />
+    <ContactDetails data={getContactValues(contactMainContainer)} />
   );
 }
 
-const contactDetailsContainer = document.getElementById('contact-details-container');
-if (contactDetailsContainer) {
-  createRoot(contactDetailsContainer).render(
-    <ContactDetails data={getContactValues(contactDetailsContainer)} />
+const contactLocationContainer = document.getElementById('contact-location-container');
+if (contactLocationContainer) {
+  createRoot(contactLocationContainer).render(
+    <ContactDetails data={getContactValues(contactLocationContainer)} />
+  );
+}
+
+const contactInvoiceContainer = document.getElementById('contact-invoice-container');
+if (contactInvoiceContainer) {
+  createRoot(contactInvoiceContainer).render(
+    <ContactDetails data={getContactValues(contactInvoiceContainer)} />
+  );
+}
+
+const contactBankContainer = document.getElementById('contact-bank-container');
+if (contactBankContainer) {
+  createRoot(contactBankContainer).render(
+    <ContactDetails data={getContactValues(contactBankContainer)} />
   );
 }
 
@@ -146,10 +98,6 @@ const scrollHandler = (targetId: string) => {
   let targetTop = 0;
 
   if (targetId && targetId !== '#') {
-    // specific case: tech-stack? if so, externally trigger open
-    if (targetId === '#tech-stack') {
-      signalTechStackOpen();
-    }
     // find top of the element
     const targetEl = document.querySelector(
       `.js-scroll-target[data-target="${targetId}"]`
@@ -184,6 +132,14 @@ if (faqsContainer) {
     </WithSvr>
   );
 }
+
+// nav button
+const navButton = document.querySelector('button.navToggle');
+navButton?.addEventListener('click', () => {
+  navButton.classList.toggle('activated');
+  const nav = document.querySelector('.nav-dropdown');
+  nav?.classList.toggle('active');
+});
 
 // scroll handlers
 document.addEventListener('DOMContentLoaded', function () {

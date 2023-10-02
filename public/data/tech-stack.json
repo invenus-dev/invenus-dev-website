@@ -42,7 +42,7 @@
     "title": "Frameworks",
     "subtitle": "JavaScript frameworks and libraries",
     "content": [
-      "React, Redux, Next, you name it. We have worked with them since their inception, understand them and love them.",
+      "React, Redux, Next.js, you name it. We have worked with them since their inception, understand them and love them.",
       "While naturally leaning towards React, there is no such thing as an universal solution, and a developer's attitude must be open."
     ],
     "hash": "frameworks",
@@ -59,10 +59,10 @@
         "Since": 2016,
         "Projects": "10+",
         "Level *": "Expert",
-        "Usual projects": "Anyting with state logic"
+        "Usual projects": "Anything with state logic"
       },
       {
-        "Tech": "Next",
+        "Tech": "Next.js",
         "Since": 2020,
         "Projects": "4+",
         "Level *": "Advanced",
@@ -102,7 +102,7 @@
     "title": "UI",
     "subtitle": "Styling and CSS related topics",
     "content": [
-      "Without the look, there would be no feel. And even since the ancient times of 2007, everything on the web was always about the look.",
+      "Without the look, there would be no feel. Even since the ancient times of 2007, everything on the web was always about the look.",
       "Starting with plan CSS, we leveraged a number of important tools and libraries to increase development speed and performance."
     ],
     "hash": "ui",
@@ -129,11 +129,11 @@
         "Notes": "Mostly React, admin interfaces"
       },
       {
-        "Tech": "tailwindcss",
+        "Tech": "Tailwind CSS",
         "Since": 2022,
-        "Projects": "3+",
+        "Projects": "2",
         "Level *": "Brief",
-        "Notes": "Go-to option for new projects"
+        "Notes": "Becoming favourite for new projects"
       }
     ]
   },
@@ -141,8 +141,8 @@
     "title": "Backend",
     "subtitle": "Server-related components and technologies",
     "content": [
-      "Web development was always about the server, with the exception of static sites. This journey started with PHP, branched over Ruby on Rails, and finally settled in Node.js.",
-      "Time-wise, most experience with backend technologies was gained on PHP. The transfer to Node.js happened more recently and is a logical step, as we strive to unify languages."
+      "Initially, web development was always tied to the server. Our journey started with PHP, branched over Ruby on Rails, and finally settled in Node.js.",
+      "Time-wise, most experience with backend technologies was gained on PHP. The transfer to Node.js happened more recently and is a logical step, as we strive to unify to JavaScript."
     ],
     "hash": "backend",
     "techs": [
@@ -158,7 +158,7 @@
         "Since": 2007,
         "Projects": "100+",
         "Level *": "Advanced",
-        "Specifics": "MySQL/MariaDB, SQLite"
+        "Specifics": "MySQL/MariaDB, PostgreSQL, SQLite"
       },
       {
         "Tech": "Node.js",
@@ -184,9 +184,9 @@
       {
         "Tech": "Serverless",
         "Since": 2022,
-        "Projects": "2",
+        "Projects": "3",
         "Level *": "Brief",
-        "Specifics": "AWS, Serverless framework"
+        "Specifics": "AWS, Digital Ocean, Serverless framework"
       }
     ]
   },
@@ -195,7 +195,7 @@
     "subtitle": "An overview of used development tools and systems",
     "content": [
       "Since the beginning we actively searched for ways to improve the development process. This led to the adoption and active usage of a number of systems.",
-      "That covers repositories, CI/CD tools, project management utilities, IDEs and more. We learned, that anything improving developer experience leads to better products."
+      "That covers repositories, CI/CD tools, project management utilities, IDEs and more. We have seen many times that developer experience influences product quality."
     ],
     "hash": "dev-systems",
     "techs": [
@@ -247,7 +247,7 @@
     "title": "AI & Automations",
     "subtitle": "Potential enablers, especially with recent AI developments",
     "content": [
-      "To bring value, products we develop must actually help people do their jobs better. This is where automations come in, and we have been working on data processing since early days.",
+      "To bring value, products we develop must actually help people to do their jobs better. This is where automations come in and we've been working on them since the early days.",
       "The other important category is AI, which we actively employ in a number of roles, from development assistance to direct integration of AI models to products."
     ],
     "hash": "ai-automations",
@@ -264,7 +264,7 @@
         "Since": 2009,
         "Projects": "30+",
         "Level *": "Expert",
-        "Specifics": "Spreadsheets, CSV, JSON, XML, images, PDFs"
+        "Specifics": "Scraping, Spreadsheets, CSV, JSON, XML, images, PDFs"
       },
       {
         "Tech": "AI Tools",
@@ -278,7 +278,7 @@
         "Since": 2020,
         "Projects": "-",
         "Level *": "Brief",
-        "Specifics": "Mastered several courses from DeepLearning.ai"
+        "Specifics": "Jan completed several courses on DeepLearning.ai"
       }
     ]
   }
