@@ -3,8 +3,8 @@
     "title": "JavaScript",
     "subtitle": "JavaScript / ECMAScript and related language topics",
     "content": [
-      "From first attempts on dynamic website elements in 2007, to whole applications using frameworks, JavaScript is at the heart of our story.",
-      "It is the most universal language of the web, hence we believe understanding it and having complete control is essential."
+      "Since Jan's initial foray into dynamic website elements back in 2007, JavaScript has been central to our journey.",
+      "As the most universal language of the web, we believe that mastering JavaScript is crucial for complete control and understanding."
     ],
     "hash": "javascript",
     "techs": [
@@ -42,8 +42,8 @@
     "title": "Frameworks",
     "subtitle": "JavaScript frameworks and libraries",
     "content": [
-      "React, Redux, Next.js, you name it. We have worked with them since their inception, understand them and love them.",
-      "While naturally leaning towards React, there is no such thing as an universal solution, and a developer's attitude must be open."
+      "From React and Redux to Next.js, we've been working with these frameworks and libraries since their inception. We understand them, and we love them.",
+      "While we have a natural affinity for React, we recognize that there's no one-size-fits-all solution. A developer's approach must remain open and flexible."
     ],
     "hash": "frameworks",
     "techs": [
@@ -102,8 +102,8 @@
     "title": "UI",
     "subtitle": "Styling and CSS related topics",
     "content": [
-      "Without the look, there would be no feel. Even since the ancient times of 2007, everything on the web was always about the look.",
-      "Starting with plan CSS, we leveraged a number of important tools and libraries to increase development speed and performance."
+      "Design is integral to user experience. Since the early days in 2007, the look of a website has always been crucial.",
+      "Beginning with plain CSS, we've adopted various essential tools and libraries to enhance both development speed and performance."
     ],
     "hash": "ui",
     "techs": [
@@ -141,7 +141,7 @@
     "title": "Backend",
     "subtitle": "Server-related components and technologies",
     "content": [
-      "Initially, web development was always tied to the server. Our journey started with PHP, branched over Ruby on Rails, and finally settled in Node.js.",
+      "Traditionally, web development was closely linked to server technologies. Our journey began with PHP, ventured into Ruby on Rails, and ultimately settled on Node.js.",
       "Time-wise, most experience with backend technologies was gained on PHP. The transfer to Node.js happened more recently and is a logical step, as we strive to unify to JavaScript."
     ],
     "hash": "backend",
@@ -192,10 +192,10 @@
   },
   {
     "title": "Dev systems",
-    "subtitle": "An overview of used development tools and systems",
+    "subtitle": "Overview of used development tools and systems",
     "content": [
-      "Since the beginning we actively searched for ways to improve the development process. This led to the adoption and active usage of a number of systems.",
-      "That covers repositories, CI/CD tools, project management utilities, IDEs and more. We have seen many times that developer experience influences product quality."
+      "From the start, we've been on the hunt for ways to optimize the development process, leading us to adopt a variety of systems.",
+      "This includes repositories, CI/CD tools, project management utilities, and IDEs, among others. We firmly believe that a positive developer experience directly impacts product quality."
     ],
     "hash": "dev-systems",
     "techs": [
@@ -247,8 +247,8 @@
     "title": "AI & Automations",
     "subtitle": "Potential enablers, especially with recent AI developments",
     "content": [
-      "To bring value, products we develop must actually help people to do their jobs better. This is where automations come in and we've been working on them since the early days.",
-      "The other important category is AI, which we actively employ in a number of roles, from development assistance to direct integration of AI models to products."
+      "To truly add value, the products we develop must enhance job performance. Automation has been a focus for us since the beginning.",
+      "While AI is not a one-size-fits-all solution, we selectively incorporate it in specific roles, such as development assistance and targeted integration of AI models into products."
     ],
     "hash": "ai-automations",
     "techs": [

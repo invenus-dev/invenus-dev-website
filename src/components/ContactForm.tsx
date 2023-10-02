@@ -154,17 +154,17 @@ const ContactForm = () => {
               Submit
             </button>
             <p className="small max-w-sm">
-              Your personal details are collected only for the purpose of contacting you back and
-              are not shared with any 3<sup>rd</sup> party outside of invenus except for{' '}
+              Your personal details are collected solely for the purpose of responding to your
+              inquiries. They are not shared with any third parties, except for{' '}
               <a
                 target="_blank"
                 className="underline"
                 href="https://www.google.com/recaptcha/about/"
                 rel="noreferrer"
               >
-                ReCaptcha SPAM protection
+                ReCaptcha for SPAM protection
               </a>
-              . To review data invenus collected or request data deletion, please{' '}
+              . To review or request the deletion of your data, please{' '}
               <a href="mailto:jan@invenus.dev" className="underline">
                 contact me
               </a>
