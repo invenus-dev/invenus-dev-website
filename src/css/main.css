@@ -1,0 +1,257 @@
+@tailwind base;
+@tailwind components;
+
+.small-logo {
+  @apply inline-block;
+}
+
+.nav-link {
+  @apply inline-block rounded-full px-3 py-1 text-base tracking-wide hover:bg-primary-light;
+}
+
+.nav-dropdown {
+  @apply hidden px-8 py-10 lg:block lg:px-0 lg:py-0;
+}
+
+.nav-dropdown.active {
+  @apply block border-b-4 border-primary-dark;
+}
+
+.sticky-on .nav-dropdown.active {
+  @apply border-none;
+}
+
+.nav-normal {
+  @apply block py-0;
+}
+
+.nav-dropdown.active .nav-link {
+  @apply mb-4 block px-4 text-lg lg:mb-0 lg:inline-block lg:px-3;
+}
+
+.nav-link.contact-hide {
+  @apply xms:hidden;
+}
+
+.sticky-on {
+  @apply sticky top-0 z-10 drop-shadow-md;
+}
+
+.sticky-on .small-logo {
+  @apply block;
+}
+
+.sticky-on .nav-link.active {
+  @apply bg-primary-light transition duration-300 ease-in;
+}
+
+.mainbody .headnote {
+  @apply rounded-lg bg-secondary px-3 py-1 font-extrabold uppercase text-primary;
+}
+
+.mainbody-light {
+  @apply text-tertiary;
+}
+
+.mainbody h1 {
+  @apply mb-3 mt-4 font-heading text-5xl font-normal lg:text-6xl;
+}
+
+.mainbody h2 {
+  @apply mb-3 mt-3 font-heading text-4xl sm:text-6xl;
+}
+
+.mainbody h3 {
+  @apply mb-3 font-heading text-3xl sm:text-4xl;
+}
+
+.mainbody h4 {
+  @apply mt-2 text-lg font-bold;
+}
+
+.mainbody h5 {
+  @apply mt-6;
+}
+
+.mainbody p {
+  @apply mb-6 max-w-3xl text-lg;
+}
+
+.mainbody p:last-of-type {
+  @apply mb-0;
+}
+
+.mainbody p.large {
+  @apply mb-4 text-xl xms:text-2xl;
+}
+
+.mainbody p.small {
+  @apply max-w-sm text-sm;
+}
+
+.mainbody ul {
+  @apply list-disc pl-8 text-lg;
+}
+
+.cubicle {
+  @apply h-48 w-64 rounded-lg bg-primary;
+}
+
+.btn {
+  @apply inline-flex items-center rounded-lg bg-gray-400 px-6 py-3 text-xl font-bold text-white shadow-lg   
+  hover:translate-x-px hover:translate-y-px 
+  focus:outline-none
+  focus:ring;
+}
+
+.btn-nav {
+  @apply bg-secondary py-2 text-lg text-primary hover:bg-secondary-dark;
+}
+
+.btn svg {
+  @apply ml-2 h-auto w-8;
+}
+
+.btn-blue {
+  @apply bg-primary-light text-tertiary
+  ring-secondary-light
+  hover:bg-primary-dark;
+}
+
+.btn-yellow {
+  @apply bg-secondary text-primary
+  ring-primary-light hover:bg-secondary-dark;
+}
+
+.btn-primary {
+  @apply bg-secondary text-2xl
+  text-primary-dark
+  ring-primary-light
+  hover:bg-secondary-dark
+  hover:text-primary-dark;
+}
+
+.btn-secondary {
+  @apply bg-secondary text-primary
+  ring-primary-light hover:bg-secondary-dark
+  hover:text-primary-dark;
+}
+
+.btn-submit {
+  @apply rounded-xl bg-primary
+  text-tertiary ring-secondary
+  hover:bg-primary-dark;
+}
+
+.benefit-card {
+  @apply rounded-2xl bg-gray-200 p-8
+  transition duration-300 
+  md:hover:translate-y-1 md:hover:drop-shadow-lg;
+}
+
+.benefit-card__head {
+  @apply flex items-center;
+}
+
+.benefit-card__head h3 {
+  @apply ml-4 text-2xl font-bold text-primary;
+}
+
+.benefit-card__head img {
+  @apply h-8 w-8;
+}
+
+.benefit-card__text {
+  @apply mt-4 text-lg;
+}
+
+.tech-nav {
+  @apply inline-block rounded-xl bg-primary-light px-6 py-2 font-semibold tracking-wide text-tertiary hover:text-secondary;
+}
+
+.tech-nav.active {
+  @apply bg-secondary text-primary;
+}
+
+.label-style {
+  @apply mb-1 block text-lg font-bold text-gray-700;
+}
+
+.input-style {
+  @apply block w-full rounded-md border-0 bg-tertiary-grade1 py-1.5 text-lg text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-secondary sm:leading-6;
+}
+
+.input-error {
+  @apply ring-red-500;
+}
+
+.error-text {
+  @apply text-sm text-red-500;
+}
+
+.social-icon {
+  @apply my-4 block h-10 w-10;
+}
+
+@keyframes blink {
+  0%,
+  49% {
+    background: white;
+  }
+  50%,
+  100% {
+    background: transparent;
+  }
+}
+
+.animate-in {
+  @apply block animate-fade animate-duration-200 animate-once animate-ease-in;
+}
+
+/* https://tailwindcomponents.com/component/animated-hamburger-menu-icon */
+.hamburger {
+  @apply relative outline-none;
+}
+.hamburger div.seg0 {
+  @apply relative flex h-[50px] w-[50px] transform items-center justify-center overflow-hidden rounded-full bg-primary-dark shadow-md ring-0 ring-secondary-light ring-opacity-30 transition-all duration-200;
+}
+.hamburger div.seg1 {
+  @apply flex h-[20px] w-[20px] origin-center transform flex-col justify-between overflow-hidden transition-all duration-300;
+}
+.hamburger div.seg2 {
+  @apply h-[2px] w-7 origin-left transform bg-white transition-all duration-300;
+}
+.hamburger div.seg3 {
+  @apply h-[2px] w-7 transform rounded bg-white transition-all delay-75 duration-300;
+}
+.hamburger div.seg4 {
+  @apply h-[2px] w-7 origin-left transform bg-white transition-all delay-150 duration-300;
+}
+.hamburger div.seg5 {
+  @apply absolute top-2.5 flex w-0 -translate-x-10 transform items-center justify-between transition-all duration-500;
+}
+.hamburger div.seg6 {
+  @apply absolute h-[2px] w-5 rotate-0 transform bg-white transition-all delay-300 duration-500;
+}
+.hamburger div.seg7 {
+  @apply absolute h-[2px] w-5 -rotate-0 transform bg-white transition-all delay-300 duration-500;
+}
+.hamburger.activated div.seg0 {
+  @apply ring-4;
+}
+.hamburger.activated div.seg2,
+.hamburger.activated div.seg3,
+.hamburger.activated div.seg4 {
+  @apply translate-x-10;
+}
+.hamburger.activated div.seg5 {
+  @apply w-12 translate-x-0;
+}
+.hamburger.activated div.seg6 {
+  @apply rotate-45;
+}
+.hamburger.activated div.seg7 {
+  @apply -rotate-45;
+}
+
+@tailwind utilities;
