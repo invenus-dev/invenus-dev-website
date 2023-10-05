@@ -4,22 +4,26 @@ import { useState } from 'react';
 import { Transition } from '@headlessui/react';
 import { ContactObject } from '../ContactDetails';
 
+import EmailIcon from '../../assets/icons/email.svg';
+import PhoneIcon from '../../assets/icons/phone.svg';
+import PlaceIcon from '../../assets/icons/place.svg';
+import InventoryIcon from '../../assets/icons/inventory.svg';
+
 type Props = {
   item: ContactObject;
 };
 
 const getSvgIcon = (key: string) => {
-  const withPrefix = (iconName: string) => `src/assets/icons/${iconName}.svg`;
   switch (key) {
     case 'email':
-      return withPrefix('email');
+      return EmailIcon;
     case 'phone':
-      return withPrefix('phone');
+      return PhoneIcon;
     case 'location':
     case 'business':
-      return withPrefix('place');
+      return PlaceIcon;
     case 'vat':
-      return withPrefix('inventory');
+      return InventoryIcon;
   }
 };
 
