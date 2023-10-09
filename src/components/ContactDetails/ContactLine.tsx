@@ -68,7 +68,11 @@ const ContactLine = ({ item }: Props) => {
       )}
 
       {url ? (
-        <a href={url} className="underline underline-offset-2">
+        <a
+          href={url}
+          className="track-click underline underline-offset-2"
+          id={`contact-link-${key}`}
+        >
           {value}
         </a>
       ) : (

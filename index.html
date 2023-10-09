@@ -92,9 +92,16 @@
           <a href="#testimonials" class="nav-link js-anchor">Testimonials</a>
           <a href="#our-story" class="nav-link js-anchor">Our Story</a>
           <a href="#faqs" class="nav-link js-anchor">FAQs</a>
-          <a href="#contacts" class="nav-link js-anchor contact-hide">Contacts</a>
+          <a href="#contacts" class="nav-link js-anchor contact-hide" id="contacts-nav-mobile"
+            >Contacts</a
+          >
         </div>
-        <a href="#contacts" class="btn btn-nav js-anchor hidden lg:inline-flex">Contacts</a>
+        <a
+          href="#contacts"
+          class="btn btn-nav js-anchor track-click hidden lg:inline-flex"
+          id="contacts-nav-desktop"
+          >Contacts</a
+        >
       </div>
     </nav>
     <main class="bg-primary px-4 pb-20 pt-8">
@@ -201,7 +208,9 @@
             class="mainbody mt-4 text-center text-tertiary xms:mt-0 xms:w-1/2 xms:text-left lg:ml-0 lg:w-2/3"
           >
             <p class="large">Connect with Jan to <strong>get your ideas live</strong>!</p>
-            <a href="#contacts" class="btn btn-primary js-anchor">Get in touch</a>
+            <a href="#contacts" class="btn btn-primary js-anchor track-click" id="contacts-in-touch"
+              >Get in touch</a
+            >
           </div>
         </div>
       </div>
@@ -469,7 +478,10 @@
           </h2>
           <p class="text-xl leading-relaxed text-tertiary-grade2">
             Hope you like our introduction.<br />Feel free to
-            <a href="#contacts" class="js-anchor text-secondary underline underline-offset-4"
+            <a
+              href="#contacts"
+              class="js-anchor track-click text-secondary underline underline-offset-4"
+              id="contacts-footer"
               >contact us</a
             >
             with your idea!
