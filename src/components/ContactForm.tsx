@@ -1,5 +1,5 @@
 import FormField from './ContactForm/FormField';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { validateCaptcha } from '../utils/validateCaptcha';
 import * as EmailValidator from 'email-validator';
 import FormResponse from './ContactForm/FormResponse';
@@ -83,6 +83,13 @@ const ContactForm = () => {
       }
     }
   };
+
+  useEffect(() => {
+    if (response) {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: 'formComplete' });
+    }
+  }, [response]);
 
   return (
     <div className="">
