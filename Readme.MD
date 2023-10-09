@@ -17,4 +17,4 @@ The website code is and will always be publicly available.
 - Completely new one-page build based on Tailwind CSS
 - Small components in React
 - Form with custom backend (not publicly available) + ReCaptcha
-- Deployed on Netlify
+- Deployment: removed GH-pages, after testing Netlify and Digital Ocean, finally settled with Cloudflare Pages
