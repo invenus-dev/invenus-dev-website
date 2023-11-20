@@ -4,3 +4,4 @@ yarn-error.log
 dist/
 .eslintcache
 .env.local
+public/sitemap.xml

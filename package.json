@@ -14,10 +14,13 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "lint": "eslint --cache ./src"
+    "lint": "eslint --cache ./src",
+    "build:sitemapgenerator": "npx tsc src/node/generateSitemap.ts --outDir ./build",
+    "prebuild": "npm run build:sitemapgenerator && node ./build/generateSitemap.js"
   },
   "devDependencies": {
     "@types/grecaptcha": "^3.0.4",
+    "@types/node": "^20.9.2",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.1",
     "@typescript-eslint/eslint-plugin": "^5.59.1",
@@ -46,6 +49,7 @@
     "email-validator": "^2.0.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "sitemap": "^7.1.1",
     "swr": "^2.1.5",
     "tailwindcss-animated": "^1.0.1"
   }
