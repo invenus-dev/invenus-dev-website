@@ -267,11 +267,11 @@
         "Specifics": "Scraping, Spreadsheets, CSV, JSON, XML, images, PDFs"
       },
       {
-        "Tech": "AI Tools",
+        "Tech": "OpenAI stack",
         "Since": 2020,
-        "Projects": "2",
+        "Projects": "3",
         "Level *": "Intermediate",
-        "Specifics": "OpenAI GPT models, Speech processing"
+        "Specifics": "Latest beta OpenAI. GPT-4 ChatCompletions, Assistants+Threads API, Whisper"
       },
       {
         "Tech": "Machine Learning",
