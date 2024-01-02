@@ -268,7 +268,7 @@
       },
       {
         "Tech": "OpenAI stack",
-        "Since": 2020,
+        "Since": 2022,
         "Projects": "3",
         "Level *": "Intermediate",
         "Specifics": "Latest beta OpenAI. GPT-4 ChatCompletions, Assistants+Threads API, Whisper"
